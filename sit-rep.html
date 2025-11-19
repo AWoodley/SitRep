@@ -1,0 +1,1068 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sit-Rep Template</title>
+ <!--   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">-->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa; /* Light gray background */
+            min-height: 100vh;
+            /* display: flex; */
+            align-items: center;
+            justify-content: center;
+            /*padding: 20px; /* Add padding for mobile view */
+        }
+        .checklist-card {
+            margin-top: 50px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 1rem; /* Rounded corners */
+        }
+        .form-check-label {
+            cursor: pointer;
+            padding: 8px 0;
+            user-select: none;
+            transition: all 0.2s ease; /* Transition applied to both color and potential text-decoration */
+            font-size: 1.1rem;
+            /* Default state (UNCHECKED): Struck through and muted */
+            text-decoration: line-through;
+            color: #6c757d; 
+        }
+
+ 
+        /* .form-card {
+            width: 100%;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            border-radius: 1rem;
+        } */
+        .form-floating label {
+            /* Adjust the floating label style for better visibility */
+            font-weight: bold; /* Keeps the label text bold */
+            color: #495057;
+        }
+        /* Ensure the textarea itself is tall and vertically resizable */
+        /* .form-floating textarea {
+            height: 500px;
+            resize: vertical; 
+        } */
+    </style>
+  </head>
+  <body>
+ <!--   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>-->
+    <script src="js/bootstrap.js"></script>
+    <script src="js-yaml.min.js"></script>
+    <div class="accordion w-100" id="SitRepAccordion">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="IncidentHeader">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseIncident">
+                    Incident
+                </button>
+            </h2>
+            <div id="collapseIncident" class="accordion-collapse collapse" data-bs-parent="#SitRepAccordion">
+                <div class="accordion-body">
+                    <form id="Informative" name="Informative Message">
+                        <div class="row">
+                            <div class="input-group col-sm">
+                                <div class="input-group-prepend w-50">
+                                    <span class="input-group-text w-100" name="From">From</span>
+                                </div>
+                                <input class="form-control" id="From" placeholder="Your Name"/>
+                            </div>
+                            <div class="input-group col-sm">
+                                <div class="input-group-prepend w-50">
+                                    <span class="input-group-text w-100">At</span>
+                                </div>
+                                <input class="form-control" id="At" Name="@"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-group col-sm">
+                                <div class="input-group-prepend w-50">
+                                    <span class="input-group-text w-100">Incident Name</span>
+                                </div>
+                                <input class="form-control" id="Incident_Name" name="Incident Name"/>
+                            </div>
+                            <div class="input-group col-sm">
+                                <div class="input-group-prepend w-50">
+                                    <span class="input-group-text w-100">Incident Number</span>
+                                </div>
+                                <input class="form-control" id="Incident_Number" name="Incident Number"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-group col-sm">
+                                <div class="input-group-prepend w-50">
+                                    <span class="input-group-text w-100">Controlling Agency</span>
+                                </div>
+                                <input class="form-control" list="ControllingAgencyList" id="Controlling_Agency" name="Controlling Agency" placeholder="..."/>
+                                <datalist id="ControllingAgencyList">
+                                    <option value="DFES">
+                                    <option value="DBCA PaWS">
+                                    <option value="City of Bayswater">
+                                    <option value="City of Belmont">
+                                    <option value="City of Canning">
+                                    <option value="City of Fremantle">
+                                    <option value="City of Melville">
+                                    <option value="City of Nedlands">
+                                    <option value="City of Perth">
+                                    <option value="City of South Perth">
+                                    <option value="City of Stirling">
+                                    <option value="City of Subiaco">
+                                    <option value="City of Vincent">
+                                    <option value="Shire of Peppermint Grove">
+                                    <option value="Town of Bassendean">
+                                    <option value="Town of Cambridge">
+                                    <option value="Town of Claremont">
+                                    <option value="Town of Cottesloe">
+                                    <option value="Town of East Fremantle">
+                                    <option value="Town of Mosman Park">
+                                    <option value="Town of Victoria Park">
+                                    <option value="City of Kalamunda">
+                                    <option value="City of Swan">
+                                    <option value="Shire of Mundaring">
+                                    <option value="City of Joondalup">
+                                    <option value="City of Wanneroo">
+                                    <option value="City of Armadale">
+                                    <option value="City of Gosnells">
+                                    <option value="Shire of Serpentine-Jarrahdale">
+                                    <option value="City of Cockburn">
+                                    <option value="City of Kwinana">
+                                    <option value="City of Rockingham">
+                                </datalist>
+                            </div>
+                            <div class="input-group col-sm">
+                                <span class="input-group-text">Authority</span>
+                                <select class="form-select" id="Authority" name="Authority" placeholder="...">
+                                    <option selected></option>
+                                    <option value="Bushfires Act 1954">Bushfires Act 1954</option>
+                                    <option value="Fire Brigades Act 1943">Fire Brigades Act 1943</option>
+                                    <option value="Conservation and Land Management Act 1984">Conservation and Land Management Act 1984</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="SituationHeader">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSituation">
+                    Situation
+                </button>
+            </h2>
+            <div id="collapseSituation" class="accordion-collapse collapse" data-bs-parent="#SitRepAccordion">
+                <div class="accordion-body">
+                    <form id="Situation" name="Situation">
+                        <div class="row">
+                            <div class="input-group col-sm">
+                                <span class="input-group-text">Classification</span>
+                                <select class="form-select" id="classification" name="Classification">
+                                    <option selected>...</option>
+                                    <option value="1st Alarm">1st Alarm</option>
+                                    <option value="2nd Alarm">2nd Alarm</option>
+                                    <option value="3rd Alarm">3rd Alarm</option>
+                                    <option value="4th Alarm">4th Alarm</option>
+                                    <option value="5th Alarm">5th Alarm</option>
+                                </select>
+                                <span class="input-group-text d-none d-md-block">Tree/Grass/Scrub Fire</span>
+                            </div>
+                            <div class="input-group col-sm">
+                                <span class="input-group-text w-50">Level</span>
+                                <select class="form-select" id="level" name="Level">
+                                    <option selected>...</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-group col-sm">
+                                <span class="input-group-text w-50">
+                                    Status</span>
+                                    <input class="form-control" list="StatusList" id="Incident_Status" name="Status" placeholder="...">
+                                    <datalist id="StatusList">
+                                        <option value="Uncontained, Uncontrolled">
+                                        <option value="Contained, Not Controlled">
+                                        <option value="Contained and Controlled">
+                                    </datalist>
+                            </div>
+                            <div class="input-group col-sm">
+                                <span class="input-group-text w-50">Firefighting Activities</span>
+                                    <input class="form-control" list="FirefightingActivitiesList" id="Firefighting_Activities" name="Firefighting Activities" placeholder="...">
+                                    <datalist id="FirefightingActivitiesList">
+                                        <option value="Asset Protection">
+                                        <option value="Attacking the Headfire">
+                                        <option value="Attacking the Flanks">
+                                        <option value="Mopping Up">
+                                        <option value="Patrolling">
+                                    </datalist>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-group col-sm">
+                                <span class="input-group-text w-50">Fuel Type</span>
+                                    <input class="form-control" list="FuelTypeList" id="Fuel_Type" placeholder="..." name="Fuel Type">
+                                    <datalist id="FuelTypeList">
+                                        <option value="Tree, Grass, Scrub">
+                                        <option value="Grass">
+                                        <option value="Coastal Heath">
+                                        <option value="Jarrah Forest">
+                                        <option value="Kari Forest">
+                                    </datalist>
+                            </div>
+                            <div class="input-group col-sm">
+                                <span class="input-group-text w-50">Fuel Load</span>
+                                    <input type="text" class="form-control" id="Fuel_Load" placeholder="t/ha" name="Fuel Load">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-group col-sm">
+                                <span class="input-group-text w-50">Fire Size</span>
+                                    <input type="text" class="form-control" id="Fire_Size" placeholder="ha" name="Fire Size">
+                            </div>
+                            <div class="input-group col-sm">
+                                <span class="input-group-text w-50">Fire Perimeter</span>
+                                    <input type="text" class="form-control" id="Fire_Perimeter" placeholder="km" name="Fire Perimeter">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-group col-sm">
+                                <span class="input-group-text w-50">Percentage Tracked</span>
+                                    <input class="form-control" list="PercentageTrackedList" id="Percentage_Tracked" placeholder="..." name="Percentage Tracked">
+                                    <datalist id="PercentageTrackedList">
+                                        <option value="10%">
+                                        <option value="25%">
+                                        <option value="33%">
+                                        <option value="50%">
+                                        <option value="66%">
+                                        <option value="75%">
+                                        <option value="80%">
+                                        <option value="90%">
+                                        <option value="95%">
+                                        <option value="100%">
+                                    </datalist>
+                            </div>
+                            <div class="input-group col-sm">
+                                <span class="input-group-text w-50">Time to Control</span>
+                                <input type="text" class="form-control" id="Time_to_control" placeholder="hrs" name="Time to Control">
+                            </div>                
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="LossesHeader">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLosses">
+                    Losses and Evacuations
+                </button>
+            </h2>
+            <div id="collapseLosses" class="accordion-collapse collapse" data-bs-parent="#SitRepAccordion">
+                <div class="accordion-body">
+                    <form id="LossesAndEvacuations" name="Losses and Evacuations">
+                        <div class="row g-3">
+                            <div class="input-group col-sm">
+                                <span class="input-group-text w-50">Dwellings</span>
+                                <div class="form-floating">
+                                    <input type="number" class="form-control"  id="DwellingsLost" name="Dwellings Lost" placeholder="0">
+                                    <label for="DwellingsLost">Lost</label>
+                                </div>
+                                <div class="form-floating">
+                                    <input type="number" class="form-control" id="DwellingsDamaged" name="Dwellings Damaged" placeholder="0">
+                                    <label for="DwellingsDamaged">Damaged</label>
+                                </div>
+                            </div>
+                            <div class="input-group col-sm">
+                                <span class="input-group-text w-50">Non-residential</span>
+                                <div class="form-floating">
+                                    <input type="number" class="form-control" id="NonResidentialLost" name="Non-Residential Lost" placeholder="0">
+                                    <label for="NonResidentialLost">Lost</label>
+                                </div>
+                                <div class="form-floating">
+                                    <input type="number" class="form-control" id="NonResidentialDamaged" name="Non-Residential Damaged" placeholder="0">
+                                    <label for="NonResidentialDamaged">Damaged</label>
+                                </div>
+                            </div>                
+                        </div>
+                        <div class="row g-3">
+                            <div class="input-group col-sm">
+                                <span class="input-group-text w-50">Commercial</span>
+                                <div class="form-floating">
+                                    <input type="number" class="form-control" id="CommercialLost" name="Commercial Lost" placeholder="0">
+                                    <label for="CommercialLost">Lost</label>
+                                </div>
+                                <div class="form-floating">
+                                    <input type="number" class="form-control" id="CommercialDamaged" name="Commercial Damaged" placeholder="0">
+                                    <label for="CommercialDamaged">Damaged</label>
+                                </div>
+                            </div>
+                            <div class="input-group col-sm">
+                                <span class="input-group-text w-50">Infrastructure</span>
+                                <div class="form-floating">
+                                    <input type="number" class="form-control" id="InfrastructureLost" name="Infrastructure Lost" placeholder="0">
+                                    <label for="InfrastructureLost">Lost</label>
+                                </div>
+                                <div class="form-floating">
+                                    <input type="number" class="form-control" id="InfrastructureDamage  d" name="Infrastructure Damaged" placeholder="0">
+                                    <label for="InfrastructureDamaged">Damaged</label>
+                                </div>
+                            </div>                
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="form-floating col-md-6">
+                                <textarea 
+                                    class="form-control rounded" 
+                                    id="OtherLosses"
+                                    name="Other Losses"
+                                    style="height: 250px"></textarea>
+                                <label for="textareaTactics">Other Losses</label>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="input-group col-sm">
+                                <span class="input-group-text w-50">Evacuations</span>
+                                    <input class="form-control" id="Evacuations" name="Evacuations" placeholder="0">
+                            </div>
+                            <div class="input-group col-sm">
+                                <span class="input-group-text w-50">Evacuation Centre</span>
+                                <input type="text" class="form-control" id="EvacuationCentre" name="Evacuation Centre" placeholder="Location...">
+                            </div>                
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="PublicInformationHeader">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePublicInformation">
+                    Public Information
+                </button>
+            </h2>
+            <div id="collapsePublicInformation" class="accordion-collapse collapse" data-bs-parent="#SitRepAccordion">
+                <div class="accordion-body">
+                    <form id="PublicInformation" name="Public Information">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <span class="input-group-text w-50">Emergency Warnings</span>
+                                    <input type="number" class="form-control" id="EmergencyWarnings" name="Emergency Warnings" placeholder="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <span class="input-group-text w-50">Watch and Act</span>
+                                    <input type="number" class="form-control" id="WatchAndAct" name="Watch and Act" placeholder="0">
+                                </div>
+                            </div>                
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <span class="input-group-text w-50">Bushfire Advice</span>
+                                    <input type="number" class="form-control" id="BushfireAdvice" name="Bushfire Advice" placeholder="0">
+                                </div>
+                            </div>                
+                        </div>                        
+                        <hr>
+                        <div class="row g-3">
+                            <div class="form-floating col-md-6">
+                                <textarea 
+                                    class="form-control rounded-lg" 
+                                    id="RoadClosures"
+                                    name="Road Closures"
+                                    style="height: 250px"></textarea>
+                                <label for="textareaTactics">Road Closures</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>        
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="ObjectivesHeader">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseObjectives">
+                    Objectives
+                </button>
+            </h2>
+            <div id="collapseObjectives" class="accordion-collapse collapse" data-bs-parent="#SitRepAccordion">
+                <div class="accordion-body">
+                    <form id="Objectives" name="Objectives">
+                        <div class="row">
+                            <div class="input-group">
+                                <button class="btn btn-outline-secondary" type="button" id="objective1Button" onclick="toggleInput('objective1', 'Protect lives of responders, and prevent damage to property, critical infrastructure, and public values within the incident area for the full duration of the incident.')">(1)</button>
+                                <input type="text" class="form-control text-primary" id="objective1" list="objectivelist1" placeholder="Protect lives of responders, and prevent damage to property, critical infrastructure, and public values within the incident area for the full duration of the incident." name="(1)">
+                                <datalist id="objectivelist1">
+                                    <option>Protect lives of responders, and prevent damage to property, critical infrastructure, and public values within the incident area for the full duration of the incident.</option>
+                                </datalist>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-group">
+                                <button class="btn btn-outline-secondary" type="button" id="objective2Button" onclick="toggleInput('objective2', 'Provide timely, relevant, and accurate community warnings and public information for the duration of the incident.')">(2)</button>
+                                <input type="text" class="form-control text-primary" id="objective2" list="objectivelist2" placeholder="Provide timely, relevant, and accurate community warnings and public information for the duration of the incident." name="(2)">
+                                <datalist id="objectivelist2">
+                                    <option>Provide timely, relevant, and accurate community warnings and public information for the duration of the incident.</option>
+                                </datalist>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-group">
+                                <button class="btn btn-outline-secondary" type="button" id="objective3Button" onclick="toggleInput('objective3', 'Contain fire to ')">(3)</button>
+                                <input type="text" class="form-control text-primary" id="objective3" list="objectivelist3" placeholder="Contain fire to " name="(3)">
+                                <datalist id="objectivelist3">
+                                    <option>Contain fire to </option>
+                                </datalist>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-group">
+                                <button class="btn btn-outline-secondary" type="button" id="objective4Button" onclick="toggleInput('objective4', 'Contain and Control by ')">(4)</button>
+                                <input type="text" class="form-control text-primary" id="objective4" list="objectivelist4" placeholder="Contain and Control by " name="(4)">
+                                <datalist id="objectivelist4">
+                                    <option>Contain and Control by </option>
+                                </datalist>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-group">
+                                <button class="btn btn-outline-secondary" type="button" id="objective5Button" onclick="toggleInput('objective5', 'Make area safe by ')">(5)</button>
+                                <input type="text" class="form-control text-primary" id="objective5" list="objectivelist5" placeholder="Make area safe by " name="(5)">
+                                <datalist id="objectivelist5">
+                                    <option>Make area safe by </option>
+                                </datalist>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-group">
+                                <button class="btn btn-outline-secondary" type="button" id="objective6Button" onclick="toggleInput('objective6', 'Hand back to landowner by ')">(6)</button>
+                                <input type="text" class="form-control text-primary" id="objective6" list="objectivelist6" placeholder="Hand back to landowner by " name="(6)">
+                                <datalist id="objectivelist6">
+                                    <option>Hand back to landowner by </option>
+                                </datalist>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-group">
+                                <button class="btn btn-outline-secondary" type="button" id="objective7Button" onclick="toggleInput('objective7', 'Hand back to landowner by ')">(7)</button>
+                                <input type="text" class="form-control text-primary" id="objective7" placeholder="Other" name="(7)">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="IMTHeader">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseIMT">
+                    IMT
+                </button>
+            </h2>
+            <div id="collapseIMT" class="accordion-collapse collapse" data-bs-parent="#SitRepAccordion">
+                <div class="accordion-body">
+                    <form id="IMT" name="IMT">
+                        <div class="row">
+                            <div class="input-group">
+                                <span class="input-group-text w-25">Control Point</span>
+                                <input type="text" class="form-control" id="ControlPoint" name="Control Point">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-group">
+                                <span class="input-group-text w-25">Incident Controller</span>
+                                <input type="text" class="form-control" id="IncidentController" name="Incident Controller">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-group">
+                                <span class="input-group-text w-25">Deputy IC</span>
+                                <input type="text" class="form-control" id="Deputy IC" name="Deputy IC">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-group">
+                                <span class="input-group-text w-25">Operations</span>
+                                <input type="text" class="form-control" id="Operations" name="Operations">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-group">
+                                <span class="input-group-text w-25">Deputy Ops</span>
+                                <input type="text" class="form-control" id="Deputy Ops" name="Deputy Ops">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-group">
+                                <span class="input-group-text w-25">Planning</span>
+                                <input type="text" class="form-control" id="Planning" name="Planning">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-group">
+                                <span class="input-group-text w-25">Logistics</span>
+                                <input type="text" class="form-control" id="Logistics" name="Logistics"">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-group">
+                                <span class="input-group-text w-25">Management Support</span>
+                                <input type="text" class="form-control" id="ManagementSupport" name="Management Suport">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-group">
+                                <span class="input-group-text w-25">Media Liason</span>
+                                <input type="text" class="form-control" id="MediaLiason" name="Media Liason">
+                            </div>
+                        </div>   
+                        <div class="row">
+                            <div class="input-group">
+                                <span class="input-group-text w-25">Public Information</span>
+                                <input type="text" class="form-control" id="PublicInformation" name="Public Information">
+                            </div>
+                        </div>     
+                        <div class="row">
+                            <div class="input-group">
+                                <span class="input-group-text w-25">Situation Analysis</span>
+                                <input type="text" class="form-control" id="SituationAnalysis" name="Situation Analysis">
+                            </div>
+                        </div>     
+                        <div class="row g-3">
+                            <div class="form-floating col-md-6">
+                                <textarea 
+                                    class="form-control rounded-lg" 
+                                    id="Divisions"
+                                    name="Divisions"
+                                    style="height: 250px"></textarea>
+                                <label for="Divisions">Divisions</label>
+                            </div>
+                        </div> 
+                        <div class="row g-3">
+                            <div class="form-floating col-md-6">
+                                <textarea 
+                                    class="form-control rounded-lg" 
+                                    id="Sectors"
+                                    name="Sectors"
+                                    style="height: 250px"></textarea>
+                                <label for="Sectors">Sectors</label>
+                            </div>
+                        </div>          
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="Operations">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOperations">
+                    Operations
+                </button>
+            </h2>
+            <div id="collapseOperations" class="accordion-collapse collapse" data-bs-parent="#SitRepAccordion">
+                <div class="accordion-body">
+                    <form id="Operations" name="Operations">
+                        <div class="row">
+                            <div class="input-group">
+                                <span class="input-group-text w-25">Communications Plan</span>
+                                <input class="form-control" list="CommunicationsPlanList" id="CommunicationsPlan" name="Communications Plan" placeholder="...">
+                                    <datalist id="CommunicationsPlanList">
+                                        <option id="MNC1" value="MNC1 - Command Channel 247, Sector Channels 354 - 359">MNC1 - Command Channel 247, Sector Channels 354 - 359</option>
+                                        <option id="MNC2" value="MNC2 - Command Channel 294, Sector Channels 354 - 359">MNC2 - Command Channel 294, Sector Channels 354 - 359</option>
+                                        <option id="MNC3" value="MNC3 - Command Channel 133, Sector Channels 360 - 365">MNC3 - Command Channel 133, Sector Channels 360 - 365</option>
+                                        <option id="MNC4" value="MNC4 - Command Channel 153, Sector Channels 354 - 359">MNC4 - Command Channel 153, Sector Channels 354 - 359</option>
+                                        <option id="MNC5" value="MNC5 - Command Channel 224, Sector Channels 360 - 365">MNC5 - Command Channel 224, Sector Channels 360 - 365</option>
+                                        <option id="MNC6" value="MNC6 - Command Channel 261, Sector Channels 354 - 359">MNC6 - Command Channel 261, Sector Channels 354 - 359</option>
+                                        <option id="MNE1" value="MNE1 - Command Channel 346, Sector Channels 360 - 365">MNE1 - Command Channel 346, Sector Channels 360 - 365</option>
+                                        <option id="MNE2" value="MNE2 - Command Channel 110, Sector Channels 354 - 359">MNE2 - Command Channel 110, Sector Channels 354 - 359</option>
+                                        <option id="MNE3" value="MNE3 - Command Channel 112, Sector Channels 360 - 365">MNE3 - Command Channel 112, Sector Channels 360 - 365</option>
+                                        <option id="MCC1" value="MCC1 - Command Channel 231, Sector Channels 354 - 359">MCC1 - Command Channel 231, Sector Channels 354 - 359</option>
+                                        <option id="MCC2" value="MCC2 - Command Channel 173, Sector Channels 360 - 365">MCC2 - Command Channel 173, Sector Channels 360 - 365</option>
+                                        <option id="MCC3" value="MCC3 - Command Channel 316, Sector Channels 354 - 359">MCC3 - Command Channel 316, Sector Channels 354 - 359</option>
+                                        <option id="MCC4" value="MCC4 - Command Channel 229, Sector Channels 360 - 365">MCC4 - Command Channel 229, Sector Channels 360 - 365</option>
+                                        <option id="MCC5" value="MCC5 - Command Channel 138, Sector Channels 354 - 359">MCC5 - Command Channel 138, Sector Channels 354 - 359</option>
+                                        <option id="MCC6" value="MCC6 - Command Channel 121, Sector Channels 360 - 365">MCC6 - Command Channel 121, Sector Channels 360 - 365</option>
+                                        <option id="MCE1" value="MCE1 - Command Channel 142, Sector Channels 360 - 365">MCE1 - Command Channel 142, Sector Channels 360 - 365</option>
+                                        <option id="MCE2" value="MCE2 - Command Channel 260, Sector Channels 354 - 359">MCE2 - Command Channel 260, Sector Channels 354 - 359</option>
+                                        <option id="MCE3" value="MCE3 - Command Channel 206, Sector Channels 360 - 365">MCE3 - Command Channel 206, Sector Channels 360 - 365</option>
+                                        <option id="MCE4" value="MCE4 - Command Channel 238, Sector Channels 354 - 359">MCE4 - Command Channel 238, Sector Channels 354 - 359</option>
+                                        <option id="MCE5" value="MCE5 - Command Channel 141, Sector Channels 354 - 359">MCE5 - Command Channel 141, Sector Channels 354 - 359</option>
+                                        <option id="MCE6" value="MCE6 - Command Channel 144, Sector Channels 354 - 359">MCE6 - Command Channel 144, Sector Channels 354 - 359</option>
+                                        <option id="MCE7" value="MCE7 - Command Channel 128, Sector Channels 360 - 365">MCE7 - Command Channel 128, Sector Channels 360 - 365</option>
+                                        <option id="MSC1" value="MSC1 - Command Channel 109, Sector Channels 354 - 359">MSC1 - Command Channel 109, Sector Channels 354 - 359</option>
+                                        <option id="MSC2" value="MSC2 - Command Channel 234, Sector Channels 360 - 365">MSC2 - Command Channel 234, Sector Channels 360 - 365</option>
+                                        <option id="MSC3" value="MSC3 - Command Channel 168, Sector Channels 354 - 359">MSC3 - Command Channel 168, Sector Channels 354 - 359</option>
+                                        <option id="MSC4" value="MSC4 - Command Channel 161, Sector Channels 354 - 359">MSC4 - Command Channel 161, Sector Channels 354 - 359</option>
+                                        <option id="MSE1" value="MSE1 - Command Channel 221, Sector Channels 360 - 365">MSE1 - Command Channel 221, Sector Channels 360 - 365</option>
+                                        <option id="MSE2" value="MSE2 - Command Channel 218, Sector Channels 354 - 359">MSE2 - Command Channel 218, Sector Channels 354 - 359</option>
+                                        <option id="MSE3" value="MSE3 - Command Channel 139, Sector Channels 360 - 365">MSE3 - Command Channel 139, Sector Channels 360 - 365</option>
+                                        <option id="MSE4" value="MSE4 - Command Channel 170, Sector Channels 354 - 359">MSE4 - Command Channel 170, Sector Channels 354 - 359</option>
+                                    </datalist>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-floating col-md-6">
+                                <textarea 
+                                    class="form-control rounded-lg" 
+                                    id="textareaTactics"
+                                    name="Tactics"
+                                    style="height: 250px"></textarea>
+                                <label for="textareaTactics">Tactics</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-floating col-md-6">
+                                <textarea 
+                                    class="form-control rounded-lg" 
+                                    id="textareaPriorities"
+                                    name="Priorities"
+                                    style="height: 250px"></textarea>
+                                <label for="textareaPriorities">Priorities</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-floating col-md-6">
+                                <textarea 
+                                    class="form-control rounded-lg" 
+                                    id="textareaTriggerPoints"
+                                    name="Trigger Points"
+                                    style="height: 250px"></textarea>
+                                <label for="textareaTriggerPoints">Trigger Points</label>
+                            </div>                        
+                        </div>                        
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="ResourcesHeader">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseResources">
+                    Resources
+                </button>
+            </h2>
+            <div id="collapseResources" class="accordion-collapse collapse" data-bs-parent="#SitRepAccordion">
+                <div class="accordion-body">
+                    <form id="Resources" name="Resources">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <span class="input-group-text w-50">Current</span>
+                                    <div class="form-floating">
+                                        <input type="number" class="form-control"  id="CurrentAppliances" name="Current Appliances" placeholder="0">
+                                        <label for="CurrentAppliances">Appliances</label>
+                                    </div>
+                                    <div class="form-floating">
+                                        <input type="number" class="form-control" id="CurrentPersonnel" name="Current Personnel" placeholder="0">
+                                        <label for="CurrentPersonnel">Personnel</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input-group col-sm">
+                                    <span class="input-group-text w-50">Future</span>
+                                    <div class="form-floating">
+                                        <input type="number" class="form-control"  id="FutureAppliances" name="Future Appliances" placeholder="0">
+                                        <label for="FutureAppliances">Appliances</label>
+                                    </div>
+                                    <div class="form-floating">
+                                        <input type="number" class="form-control" id="FuturePersonnel" name="Future Personnel" placeholder="0">
+                                        <label for="FuturePersonnel">Personnel</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row g-3">
+                            <div class="form-floating col-md-6">
+                                <textarea 
+                                    class="form-control rounded-lg" 
+                                    id="AdditionalOnSite"
+                                    name="Additional On Site"
+                                    style="height: 400px"></textarea>
+                                <label for="AdditionalOnSite">Additional On Site</label>
+                            </div>
+                        </div>
+                        <div class="row g-3">
+                            <div class="form-floating col-md-6">
+                                <textarea 
+                                    class="form-control rounded-lg" 
+                                    id="AdditionalDeparted"
+                                    name="Additional Departed"
+                                    style="height: 400px"></textarea>
+                                <label for="AdditionalDeparted">Additional Departed</label>
+                            </div>
+                        </div>
+                        <div class="row g-3">
+                            <div class="form-floating col-md-6">
+                                <textarea 
+                                    class="form-control rounded-lg" 
+                                    id="RequiredResources"
+                                    name="Required"
+                                    style="height: 400px"></textarea>
+                                <label for="RequiredResources">Required</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="SafetyHeader">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSafety">
+                    Safety and Welfare
+                </button>
+            </h2>
+            <div id="collapseSafety" class="accordion-collapse collapse" data-bs-parent="#SitRepAccordion">
+                <div class="accordion-body">
+                    <form id="SafetyAndWelfare" name="Safety and Welfare">
+                        <div class="row g-3">
+                            <div class="form-floating col-md-6">
+                                <textarea 
+                                    class="form-control rounded-lg" 
+                                    id="Safety"
+                                    name="Safety"
+                                    style="height: 400px"></textarea>
+                                <label for="Safety">Safety</label>
+                            </div>
+                        </div>
+                        <div class="row g-3">
+                            <div class="form-floating col-md-6">
+                                <textarea 
+                                    class="form-control rounded-lg" 
+                                    id="Welfare"
+                                    name="Wefare"
+                                    style="height: 400px"></textarea>
+                                <label for="Welfare">Welfare</label>
+                            </div>
+                        </div>                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+    <hr>
+    <form id="NextUpdate" name="Next Update">
+        <div class="row">
+            <div class="input-group col-sm-6">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Next Update</span>
+                </div>
+                    <button class="btn btn-secondary" type="button" onclick="updateTimeButton('NextUpdateTime', 1)">1 hr</button>
+                    <button class="btn btn-secondary" type="button" onclick="updateTimeButton('NextUpdateTime', 2)">2 hrs</button>
+                    <button class="btn btn-secondary" type="button" onclick="updateTimeButton('NextUpdateTime', 6)">6 hrs</button>
+                    <button class="btn btn-secondary" type="button" onclick="updateTimeButton('NextUpdateTime', 12)">12 hrs</button>
+            </div>
+            <div class="col-sm-6">
+                    <input type="text" class="form-control" list="UpdateList" id="NextUpdateTime" name="@" placeholder="..."/>
+                        <datalist id="UpdateList">
+                            <option id='1hr' value="">+1hr</option>
+                            <option id='2hr' value="">+2hr</option>
+                            <option id='6hr' value="">+6hr</option>
+                            <option id='12hr' value="">+12hr</option>
+                        </datalist>
+            </div>
+            
+        </div>
+        <div class="row">
+            <div class="input-group col-sm-6 w-50">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Email</span>
+                </div>
+                <input class="form-control" list="EmailList" id="Email" placeholder="..."/>
+                    <datalist id="EmailList">
+                        <option id="test@exmaple.com" value="test@example.com">test@example.com</option>
+                    </datalist>
+            </div>
+        </div>
+    </form>
+
+    <hr>
+
+    <div class="row">
+        <div class="input-group justify-content-center">
+            <button type="button" class="btn btn-primary w-25" id="Export" onclick="exportYAML()">Generate</button>
+            <button type="button" class="btn btn-secondary w-25" id="Import" onclick="importYAML()">Import</button>
+            <button type="button" class="btn btn-success w-25" id="Email" onclick="emailYAML()">Email</button>
+            <button type="button" class="btn btn-primary w-25" id="Help" data-bs-toggle="modal" data-bs-target="#helpModal">Help</button>
+        </div>
+    </div>
+
+    <hr>
+
+    <form>
+        <div class="row">
+            <div class="form-floating">
+                <textarea 
+                    class="form-control rounded-lg" 
+                    id="YAML"
+                    style="height: 400px"></textarea>
+                    <label for="YAML">Output</label>
+            </div>
+        </div>
+    </form>
+
+    <!-- Modal -->
+    <div class="modal fade" id="helpModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="helpModalLabel">Sit-Rep Tool</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                This tool is designed to make the production of situation reports for bushfire incidents, primarily for submission via email. The generated output is in plain text, and will translate well into CAD/WebEOC comments.
+                </p>
+                <p>
+                The tool is suitable for Level 1 and Level 2 incidents, however it does not replace an IAP or IAP-Lite. It is intended for situation reporting only.
+                </p>
+                <p>
+                Most fields in the template permit free test. Fields with "..." also contain pre-canned options that can be selected. Only fields that have entries will be presented in the generated report.
+                </p>
+                <p>
+                Clicking on the "Generate" button will output the report into the Output field at the bottom. The "Import" button will translate the contents of the Output field back into the template fields.
+                </p>
+                <p>
+                The "Email" button will take the current report and open a new email, using your default email program.
+                </p>
+                <p>
+                Laslty, this tool is a self contained html file. Feel free to save this page and use it locally - all of the required components and libraries are included within a single file and may be used offline.
+                </p>
+                <p>
+                If you have any questions or suggestions for this tool, please email <a href="mailto:Adrian@SawyersValley.bfb.asn.au">Adrian@SawyersValley.bfb.asn.au</a>.
+                </p>
+                Version: 1.0.0<br>
+                Date: 2025-11-19<br>
+                Licensed under the <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GPLv3.0</a><br>(excluding the <a href="https://getbootstrap.com/">Bootstrap</a> and <a href="https://github.com/nodeca/js-yaml">js-yaml</a> libraries)<br>
+                <a href="https://github.com/AWoodley/SitRep">https://github.com/AWoodley/SitRep</a>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleInput(targetId, text) {
+            const inputElement = document.getElementById(targetId);
+            if (!inputElement) {
+                console.error(`input target not found: #${targetId}`);
+                return;
+            }
+
+            if (inputElement.value) {
+                inputElement.value = '';
+            } else {
+                inputElement.value = text;
+            }
+            // toggleInputBold(targetId);
+        } 
+
+        function toggleInputBold(targetId) {
+            const inputElement = document.getElementById(targetId);
+            if (!inputElement) {
+                console.error(`input target not found: #${targetId}`);
+                return;
+            }
+
+            if (inputElement.value) {
+                inputElement.style.fontWeight = 'bold';
+            } else {
+                inputElement.style.fontWeight = 'normal';
+            }
+        }
+
+        Date.prototype.addHours = function(h) {
+            this.setTime(this.getTime() + (h*60*60*1000));
+            return this;
+        }
+
+        Date.prototype.roundHalfHour = function() {
+            var hour = this.getHours();
+            var minutes = this.getMinutes();
+            var ampm = "AM";
+            if (minutes < 15) {
+                minutes = "00";
+            } else if (minutes < 45){
+                minutes = "30";
+            } else {
+                minutes = "00";
+                ++hour;
+            }
+
+            this.setHours(hour);
+            this.setMinutes(minutes);
+
+            return this;
+
+        }
+
+
+        function formatDate(thisDate) {
+            roundedDate = thisDate.roundHalfHour();
+
+            var day = roundedDate.getDate();
+            var month = roundedDate.getMonth() + 1;
+            var year = roundedDate.getFullYear();
+
+            var hours = roundedDate.getHours().toString().padStart(2, 0);
+            // var hours = hrs.padStart(2,0);
+            var minutes = roundedDate.getMinutes().toString().padStart(2, 0);
+
+            var dateString = hours + ":" + minutes + " " + day + "/" + month + "/" + year + " ";
+
+            return dateString;
+        }
+
+        function getDate() {
+            var time = new Date();
+
+            var dateString = formatDate(time);
+
+            document.getElementById("At").value = dateString;
+
+            const updates = {
+                '1hr': 1,
+                '2hr': 2,
+                '6hr': 6,
+                '12hr': 12
+            };
+
+            for (update in updates) {
+                var nextUpdate = time.addHours(updates[update]);
+                document.getElementById(update).value = formatDate(nextUpdate);
+            }
+            
+        }
+        getDate();
+
+        function updateTimeButton(targetId, updateTime) {
+            const inputElement = document.getElementById(targetId);
+            if (!inputElement) {
+                console.error(`input target not found: #${targetId}`);
+                return;
+            }
+
+            var time = new Date();
+
+            console.log(inputElement);
+
+            var nextUpdate = time.addHours(updateTime);
+            inputElement.value = formatDate(nextUpdate);
+            console.log(formatDate(nextUpdate));
+        }
+
+        function addBlankLineBeforeUnindented(multilineString) {
+            const lines = multilineString.split('\n');
+            const result = [];
+
+            for (const line of lines) {
+                if (line.length > 0 && !line.startsWith(' ')) {
+                    result.push(''); 
+                }
+                
+                result.push(line);
+            }
+
+            let finalResult = result;
+            if (finalResult[0] === '') {
+                finalResult = finalResult.slice(1);
+            }
+
+            return finalResult.join('\n');
+        }
+
+        function exportYAML() {
+            const allForms = document.forms;
+            const outputField = document.getElementById("YAML");
+            const outputObject = {};
+
+            for (let i = 0; i < allForms.length; i++) {
+                const currentForm = allForms[i];
+                if (currentForm.name != '') {
+
+                    const formData = new FormData(currentForm);
+                    const keysToDelete = [];
+
+
+                    for (const pair of formData) {
+                        const key = pair[0];
+                        const value = pair[1];
+
+                        if (value === '...' || !value) {
+                            keysToDelete.push(key);
+                        }
+                    }
+
+                    for (const key of keysToDelete) {
+                        formData.delete(key);
+                    }
+                    if (Array.from(formData.keys()).length > 0) {
+                        outputObject[currentForm.name] = Object.fromEntries(formData.entries());
+                    }
+                }
+            }
+
+            let output = jsyaml.dump(outputObject, {'lineWidth': -1});
+
+            output = output.replaceAll('{}', '');
+            output = output.replaceAll('\'', '');
+            output = addBlankLineBeforeUnindented(output);
+
+            outputField.value = output;
+        }
+
+        function importYAML() {
+            const allForms = document.forms;
+            const input = document.getElementById("YAML").value;
+
+            try {
+                const formObject = jsyaml.load(input);
+                for (let i = 0; i < allForms.length; i++) {
+                const currentForm = allForms[i];
+                const formName = currentForm.name;
+                if (formName != '') {
+                    const currentFormObject = formObject[formName];
+                    for (const key in currentFormObject) {
+                        if (currentFormObject.hasOwnProperty(key)) {
+                            const formElement = currentForm.elements[key];
+
+                            if (formElement) {
+                                if (formElement.type === 'checkbox' || formElement.type === 'radio') {
+                                    formElement.checked = currentFormObject[key];
+                                } else {
+                                    formElement.value = currentFormObject[key];
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            } catch (e) {
+                console.error(e);
+                return false;
+            }
+        }
+
+        function emailYAML() {
+            exportYAML();
+            const email = document.getElementById("Email").value;
+            var subject = "INC" + document.getElementById("Incident_Number").value + " " + document.getElementById("Incident_Name").value + " Update: " + document.getElementById("At").value;
+            const body = document.getElementById("YAML").value;
+
+            var mailtoLink = "mailto:" + email + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+
+            window.location.href = mailtoLink;
+        }
+    </script>
+</body>
+</html>
