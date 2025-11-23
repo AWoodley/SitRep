@@ -46,7 +46,7 @@
                                 <div class="input-group-prepend w-50">
                                     <span class="input-group-text w-100" name="From">From</span>
                                 </div>
-                                <input class="form-control" id="From" autocomplete="name" placeholder="Your Name"/>
+                                <input class="form-control" id="From" name="From" autocomplete="name" placeholder="Your Name"/>
                             </div>
                             <div class="input-group col-sm">
                                 <div class="input-group-prepend w-50">
@@ -428,7 +428,7 @@
                         </div>
                         <div class="row">
                             <div class="input-group">
-                                <button class="btn btn-outline-secondary" type="button" id="objective7Button" onclick="toggleInputValue('objective7', 'Hand back to landowner by ')">(7)</button>
+                                <button class="btn btn-outline-secondary" type="button" id="objective7Button" onclick="toggleInputValue('objective7', '')">(7)</button>
                                 <input type="text" class="form-control text-primary" id="objective7" placeholder="Other" name="(7)">
                             </div>
                         </div>
@@ -1014,6 +1014,9 @@
             output = addBlankLineBeforeUnindented(output);
 
             outputField.value = output;
+
+            localStorage.setItem('from', document.getElementById("From").value);
+            localStorage.setItem('email', document.getElementById("Email").value);
         }
 
 
@@ -1088,6 +1091,16 @@
                 if (savedTheme === 'dark') {
                     themeToggle.checked = true;
                 }
+            }
+
+            const savedFrom = localStorage.getItem('from');
+            if (savedFrom) {
+                document.getElementById("From").value = savedFrom;
+            }
+
+            const savedEmail = localStorage.getItem('email');
+            if (savedEmail) {
+                document.getElementById("Email").value = savedEmail;
             }
         }
     </script>
