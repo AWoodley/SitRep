@@ -4,44 +4,33 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sit-Rep Template</title>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script> -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/js-yaml.min.js"></script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            /* background-color: #f8f9fa; Light gray background */
             min-height: 100vh;
-            /* display: flex; */
             align-items: center;
             justify-content: center;
-            /*padding: 20px; /* Add padding for mobile view */
         }
+ 
         .checklist-card {
             margin-top: 50px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             border-radius: 1rem; /* Rounded corners */
         }
  
-        /* .form-card {
-            width: 100%;
-            padding: 30px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            border-radius: 1rem;
-        } */
         .form-floating label {
             /* Adjust the floating label style for better visibility */
             font-weight: bold; /* Keeps the label text bold */
             color: #495057;
         }
-        /* Ensure the textarea itself is tall and vertically resizable */
-        /* .form-floating textarea {
-            height: 500px;
-            resize: vertical; 
-        } */
     </style>
   </head>
   <body>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/js-yaml.min.js"></script>
     <div class="accordion w-100" id="SitRepAccordion">
         <div class="accordion-item">
             <h2 class="accordion-header" id="IncidentHeader">
@@ -385,7 +374,7 @@
                     <form id="Objectives" name="Objectives">
                         <div class="row">
                             <div class="input-group">
-                                <button class="btn btn-outline-secondary" type="button" id="objective1Button" onclick="toggleInput('objective1', 'Protect lives of responders, and prevent damage to property, critical infrastructure, and public values within the incident area for the full duration of the incident.')">(1)</button>
+                                <button class="btn btn-outline-secondary" type="button" id="objective1Button" onclick="toggleInputValue('objective1', 'Protect lives of responders, and prevent damage to property, critical infrastructure, and public values within the incident area for the full duration of the incident.')">(1)</button>
                                 <input type="text" class="form-control text-primary" id="objective1" list="objectivelist1" placeholder="Protect lives of responders, and prevent damage to property, critical infrastructure, and public values within the incident area for the full duration of the incident." name="(1)">
                                 <datalist id="objectivelist1">
                                     <option>Protect lives of responders, and prevent damage to property, critical infrastructure, and public values within the incident area for the full duration of the incident.</option>
@@ -394,7 +383,7 @@
                         </div>
                         <div class="row">
                             <div class="input-group">
-                                <button class="btn btn-outline-secondary" type="button" id="objective2Button" onclick="toggleInput('objective2', 'Provide timely, relevant, and accurate community warnings and public information for the duration of the incident.')">(2)</button>
+                                <button class="btn btn-outline-secondary" type="button" id="objective2Button" onclick="toggleInputValue('objective2', 'Provide timely, relevant, and accurate community warnings and public information for the duration of the incident.')">(2)</button>
                                 <input type="text" class="form-control text-primary" id="objective2" list="objectivelist2" placeholder="Provide timely, relevant, and accurate community warnings and public information for the duration of the incident." name="(2)">
                                 <datalist id="objectivelist2">
                                     <option>Provide timely, relevant, and accurate community warnings and public information for the duration of the incident.</option>
@@ -403,7 +392,7 @@
                         </div>
                         <div class="row">
                             <div class="input-group">
-                                <button class="btn btn-outline-secondary" type="button" id="objective3Button" onclick="toggleInput('objective3', 'Contain fire to ')">(3)</button>
+                                <button class="btn btn-outline-secondary" type="button" id="objective3Button" onclick="toggleInputValue('objective3', 'Contain fire to ')">(3)</button>
                                 <input type="text" class="form-control text-primary" id="objective3" list="objectivelist3" placeholder="Contain fire to " name="(3)">
                                 <datalist id="objectivelist3">
                                     <option>Contain fire to </option>
@@ -412,7 +401,7 @@
                         </div>
                         <div class="row">
                             <div class="input-group">
-                                <button class="btn btn-outline-secondary" type="button" id="objective4Button" onclick="toggleInput('objective4', 'Contain and Control by ')">(4)</button>
+                                <button class="btn btn-outline-secondary" type="button" id="objective4Button" onclick="toggleInputValue('objective4', 'Contain and Control by ')">(4)</button>
                                 <input type="text" class="form-control text-primary" id="objective4" list="objectivelist4" placeholder="Contain and Control by " name="(4)">
                                 <datalist id="objectivelist4">
                                     <option>Contain and Control by </option>
@@ -421,7 +410,7 @@
                         </div>
                         <div class="row">
                             <div class="input-group">
-                                <button class="btn btn-outline-secondary" type="button" id="objective5Button" onclick="toggleInput('objective5', 'Make area safe by ')">(5)</button>
+                                <button class="btn btn-outline-secondary" type="button" id="objective5Button" onclick="toggleInputValue('objective5', 'Make area safe by ')">(5)</button>
                                 <input type="text" class="form-control text-primary" id="objective5" list="objectivelist5" placeholder="Make area safe by " name="(5)">
                                 <datalist id="objectivelist5">
                                     <option>Make area safe by </option>
@@ -430,7 +419,7 @@
                         </div>
                         <div class="row">
                             <div class="input-group">
-                                <button class="btn btn-outline-secondary" type="button" id="objective6Button" onclick="toggleInput('objective6', 'Hand back to landowner by ')">(6)</button>
+                                <button class="btn btn-outline-secondary" type="button" id="objective6Button" onclick="toggleInputValue('objective6', 'Hand back to landowner by ')">(6)</button>
                                 <input type="text" class="form-control text-primary" id="objective6" list="objectivelist6" placeholder="Hand back to landowner by " name="(6)">
                                 <datalist id="objectivelist6">
                                     <option>Hand back to landowner by </option>
@@ -439,7 +428,7 @@
                         </div>
                         <div class="row">
                             <div class="input-group">
-                                <button class="btn btn-outline-secondary" type="button" id="objective7Button" onclick="toggleInput('objective7', 'Hand back to landowner by ')">(7)</button>
+                                <button class="btn btn-outline-secondary" type="button" id="objective7Button" onclick="toggleInputValue('objective7', 'Hand back to landowner by ')">(7)</button>
                                 <input type="text" class="form-control text-primary" id="objective7" placeholder="Other" name="(7)">
                             </div>
                         </div>
@@ -802,8 +791,8 @@
         <div class="row">
             <div class="form-floating">
                 <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" role="switch" id="theme-toggle">
-                    <label class="form-check-label" for="theme-toggle">Dark Mode</label>
+                    <input class="form-check-input" type="checkbox" role="switch" id="theme_Toggle">
+                    <label class="form-check-label" for="theme_Toggle">Dark Mode</label>
                 </div>
             </div>
         </div>
@@ -852,7 +841,7 @@
     </div>
 
     <script>
-        function toggleInput(targetId, text) {
+        function toggleInputValue(targetId, text) {
             const inputElement = document.getElementById(targetId);
             if (!inputElement) {
                 console.error(`input target not found: #${targetId}`);
@@ -903,7 +892,6 @@
             this.setMinutes(minutes);
 
             return this;
-
         }
 
 
@@ -922,6 +910,7 @@
 
             return dateString;
         }
+
 
         function getDate() {
             var time = new Date();
@@ -950,7 +939,7 @@
             }
             
         }
-        getDate();
+        
 
         function updateTimeButton(targetId, updateTime) {
             const inputElement = document.getElementById(targetId);
@@ -964,6 +953,7 @@
             var nextUpdate = time.addHours(updateTime);
             inputElement.value = formatDate(nextUpdate);
         }
+
 
         function addBlankLineBeforeUnindented(multilineString) {
             const lines = multilineString.split('\n');
@@ -984,6 +974,7 @@
 
             return finalResult.join('\n');
         }
+
 
         function exportYAML() {
             const allForms = document.forms;
@@ -1025,6 +1016,7 @@
             outputField.value = output;
         }
 
+
         function importYAML() {
             const allForms = document.forms;
             let input = document.getElementById("YAML").value;
@@ -1059,6 +1051,7 @@
             }
         }
 
+
         function emailYAML() {
             exportYAML();
             const email = document.getElementById("Email").value;
@@ -1070,25 +1063,31 @@
             window.location.href = mailtoLink;
         }
 
-        const themeToggle = document.getElementById('theme-toggle'); // Assuming you have a toggle with this ID
-        const htmlElement = document.documentElement;
 
-        themeToggle.addEventListener('change', () => {
-            if (themeToggle.checked) {
-                htmlElement.setAttribute('data-bs-theme', 'dark');
-            } else {
-                htmlElement.setAttribute('data-bs-theme', 'light');
-            }
-            // Optional: Save preference to local storage
-            localStorage.setItem('theme', htmlElement.getAttribute('data-bs-theme'));
-        });
+        window.onload = function() {
+            getDate();
 
-        // Optional: Load preference on page load
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
-            htmlElement.setAttribute('data-bs-theme', savedTheme);
-            if (savedTheme === 'dark') {
-                themeToggle.checked = true;
+
+            const themeToggle = document.getElementById('theme_Toggle'); // Assuming you have a toggle with this ID
+            const htmlElement = document.documentElement;
+            themeToggle.addEventListener('change', () => {
+                if (themeToggle.checked) {
+                    htmlElement.setAttribute('data-bs-theme', 'dark');
+                } else {
+                    htmlElement.setAttribute('data-bs-theme', 'light');
+                }
+                // Optional: Save preference to local storage
+                localStorage.setItem('theme', htmlElement.getAttribute('data-bs-theme'));
+            });
+
+
+            // Optional: Load preference on page load
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                htmlElement.setAttribute('data-bs-theme', savedTheme);
+                if (savedTheme === 'dark') {
+                    themeToggle.checked = true;
+                }
             }
         }
     </script>
