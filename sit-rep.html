@@ -780,12 +780,12 @@
     <div class="container-lg">
         <hr>
 
+        <label for="YAML" class="fw-bold">Output</label>
         <div class="textarea-container" style="position: relative;">
             <textarea 
                             class="form-control rounded-lg" 
                             id="YAML"
                             style="height: 400px"></textarea>
-                            <label for="YAML">Output</label>
             <div style="position: absolute; top: 5px; right: 5px;">
                 <!-- <button type="button" class="btn btn-primary" id="Export" onclick="exportYAML()">Generate</button>
                 <button type="button" class="btn btn-warning" id="Import" onclick="importYAML()">Import</button> -->
@@ -794,16 +794,19 @@
             </div>
         </div>
 
-        <form>
-            <div class="row">
-                <div class="form-floating">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-4 text-start">
                     <div class="form-check form-switch">
                         <input class="form-check-input" type="checkbox" role="switch" id="theme_Toggle">
                         <label class="form-check-label" for="theme_Toggle">Dark Mode</label>
                     </div>
                 </div>
+                <div class="col-4 text-end">
+                    <button type="button" class="btn btn-primary" id="Help" data-bs-toggle="modal" data-bs-target="#helpModal">Help</button>
+                </div>
             </div>
-        </form>
+        </div>
     </div>
 
     <!-- Modal -->
@@ -812,6 +815,48 @@
             <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="helpModalLabel">Sit-Rep Tool</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                This tool is designed to make the production of situation reports for bushfire incidents, primarily for submission via email. The generated output is in plain text, and will translate well into CAD/WebEOC comments.
+                </p>
+                <p>
+                The tool is suitable for Level 1 and Level 2 incidents, however it does not replace an IAP or IAP-Lite. It is intended for situation reporting only.
+                </p>
+                <p>
+                Most fields in the template permit free test. Fields with "..." also contain pre-canned options that can be selected. Only fields that have entries will be presented in the generated report.
+                </p>
+                <p>
+                Clicking on the "Generate" button will output the report into the Output field at the bottom. The "Import" button will translate the contents of the Output field back into the template fields.
+                </p>
+                <p>
+                The "Email" button will take the current report and open a new email, using your default email program.
+                </p>
+                <p>
+                Laslty, this tool is a self contained html file. Feel free to save this page and use it locally - all of the required components and libraries are included within a single file and may be used offline.
+                </p>
+                <p>
+                If you have any questions or suggestions for this tool, please email <a href="mailto:Adrian@SawyersValley.bfb.asn.au">Adrian@SawyersValley.bfb.asn.au</a>.
+                </p>
+                Version: 1.0.0<br>
+                Date: 2025-11-19<br>
+                Licensed under the <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GPLv3.0</a><br>(excluding the <a href="https://getbootstrap.com/">Bootstrap</a> and <a href="https://github.com/nodeca/js-yaml">js-yaml</a> libraries)<br>
+                <a href="https://github.com/AWoodley/SitRep">https://github.com/AWoodley/SitRep</a>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="printModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="helpModalLabel">Print</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -962,6 +1007,7 @@
 
             var nextUpdate = time.addHours(updateTime);
             inputElement.value = formatDate(nextUpdate);
+            exportYAML();
         }
 
 
