@@ -9,6 +9,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <script src="js/bootstrap.min.js"></script>
     <script src="js/js-yaml.min.js"></script>
+    <!-- <script src="js/html5-qrcode.min.js"></script> -->
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -31,7 +32,7 @@
     </style>
   </head>
   <body>
-    <div class="accordion w-100" id="SitRepAccordion">
+    <div class="accordion container-lg" id="SitRepAccordion">
         <div class="accordion-item">
             <h2 class="accordion-header" id="IncidentHeader">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseIncident">
@@ -724,79 +725,86 @@
         </div>
     </div>
     </form>
-    <hr>
-    <form id="NextUpdate" name="Next Update">
-        <div class="row">
-            <div class="input-group col-sm-6">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">Next Update</span>
+    <div class="container-lg">
+        <hr>
+        <form id="NextUpdate" name="Next Update">
+            <div class="row">
+                <div class="input-group col-sm">
+                        <span class="input-group-text">Next Update</span>
+                        <input type="text" class="form-control" list="UpdateList" id="NextUpdateTime" name="@" placeholder="..."/>
+                            <datalist id="UpdateList">
+                                <option id='1hr' value="">+1hr</option>
+                                <option id='2hr' value="">+2hr</option>
+                                <option id='6hr' value="">+6hr</option>
+                                <option id='12hr' value="">+12hr</option>
+                            </datalist>
+
                 </div>
+                <div class="input-group col-sm">
+                    <span class="input-group-text">Now +</span>
                     <button class="btn btn-secondary" type="button" onclick="updateTimeButton('NextUpdateTime', 1)">1 hr</button>
                     <button class="btn btn-secondary" type="button" onclick="updateTimeButton('NextUpdateTime', 2)">2 hrs</button>
                     <button class="btn btn-secondary" type="button" onclick="updateTimeButton('NextUpdateTime', 6)">6 hrs</button>
                     <button class="btn btn-secondary" type="button" onclick="updateTimeButton('NextUpdateTime', 12)">12 hrs</button>
-            </div>
-            <div class="col-sm-6">
-                    <input type="text" class="form-control" list="UpdateList" id="NextUpdateTime" name="@" placeholder="..."/>
-                        <datalist id="UpdateList">
-                            <option id='1hr' value="">+1hr</option>
-                            <option id='2hr' value="">+2hr</option>
-                            <option id='6hr' value="">+6hr</option>
-                            <option id='12hr' value="">+12hr</option>
-                        </datalist>
-            </div>
-            
-        </div>
-        <div class="row">
-            <div class="input-group col-sm-6 w-50">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">Email</span>
                 </div>
-                <input class="form-control" list="EmailList" id="Email" placeholder="..."/>
-                    <datalist id="EmailList">
-                        <option id="test@exmaple.com" value="test@example.com">test@example.com</option>
-                    </datalist>
             </div>
-        </div>
-    </form>
-
-    <hr>
-
-    <div class="row">
-        <div class="form-floating">
-            <div class="input-group justify-content-center">
-                <button type="button" class="btn btn-primary w-25" id="Export" onclick="exportYAML()">Generate</button>
-                <button type="button" class="btn btn-secondary w-25" id="Import" onclick="importYAML()">Import</button>
-                <button type="button" class="btn btn-success w-25" id="Email" onclick="emailYAML()">Email</button>
-                <button type="button" class="btn btn-primary w-25" id="Help" data-bs-toggle="modal" data-bs-target="#helpModal">Help</button>
+            <div class="row">
+                <div class="input-group col-sm">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Email</span>
+                    </div>
+                    <input class="form-control" list="EmailList" id="Email" placeholder="..."/>
+                        <datalist id="EmailList">
+                            <option id="test@exmaple.com" value="test@example.com">test@example.com</option>
+                        </datalist>
+                </div>
             </div>
-        </div>
+        </form>
     </div>
 
-    <hr>
-
-    <form>
+    <!-- <div class="container-lg">
+        <hr>
         <div class="row">
             <div class="form-floating">
-                <textarea 
-                    class="form-control rounded-lg" 
-                    id="YAML"
-                    style="height: 400px"></textarea>
-                    <label for="YAML">Output</label>
-            </div>
-        </div>
-    </form>
-
-    <form>
-        <div class="row">
-            <div class="form-floating">
-                <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" role="switch" id="theme_Toggle">
-                    <label class="form-check-label" for="theme_Toggle">Dark Mode</label>
+                <div class="input-group justify-content-center">
+                    <button type="button" class="btn btn-primary w-25" id="Export" onclick="exportYAML()">Generate</button>
+                    <button type="button" class="btn btn-secondary w-25" id="Import" onclick="importYAML()">Import</button>
+                    <button type="button" class="btn btn-success w-25" id="Email" onclick="emailYAML()">Email</button>
+                    <button type="button" class="btn btn-primary w-25" id="Help" data-bs-toggle="modal" data-bs-target="#helpModal">Help</button>
                 </div>
             </div>
         </div>
-    </form>
+    </div>  -->
+
+
+    <div class="container-lg">
+        <hr>
+
+        <div class="textarea-container" style="position: relative;">
+            <textarea 
+                            class="form-control rounded-lg" 
+                            id="YAML"
+                            style="height: 400px"></textarea>
+                            <label for="YAML">Output</label>
+            <div style="position: absolute; top: 5px; right: 5px;">
+                <!-- <button type="button" class="btn btn-primary" id="Export" onclick="exportYAML()">Generate</button>
+                <button type="button" class="btn btn-warning" id="Import" onclick="importYAML()">Import</button> -->
+                <button type="button" class="btn btn-success" id="Email" onclick="emailYAML()">Email</button>
+                <button type="button" class="btn btn-primary" id="copyButton" onclick="copyYAML()">Copy</button>
+            </div>
+        </div>
+
+        <form>
+            <div class="row">
+                <div class="form-floating">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="theme_Toggle">
+                        <label class="form-check-label" for="theme_Toggle">Dark Mode</label>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
 
     <!-- Modal -->
     <div class="modal fade" id="helpModal" tabindex="-1">
@@ -839,6 +847,8 @@
             </div>
         </div>
     </div>
+
+    <!-- <div style="width: 500px" id="reader"></div> -->
 
     <script>
         function toggleInputValue(targetId, text) {
@@ -1067,6 +1077,20 @@
         }
 
 
+        function copyYAML() {
+            const textarea = document.getElementById('YAML');
+            navigator.clipboard.writeText(textarea.value)
+                .catch(err => {
+                    console.error('Failed to copy text: ', err);
+                });
+        }
+        // function onScanSuccess(decodedText, decodedResult) {
+        //     // Handle on success condition with the decoded text or result.
+        //     document.getElementById('YAML').value = decodedText;
+        //     console.log(`Scan result: ${decodedText}`, decodedResult);
+        //     html5QrcodeScanner.clear();
+        // }
+
         window.onload = function() {
             getDate();
 
@@ -1102,6 +1126,21 @@
             if (savedEmail) {
                 document.getElementById("Email").value = savedEmail;
             }
+
+
+            const allForms = document.forms;
+            for (let i = 0; i < allForms.length; i++) {
+                const currentForm = allForms[i];
+
+                currentForm.addEventListener('change', exportYAML);
+            }
+
+            const outputField = document.getElementById("YAML");
+            outputField.addEventListener('change', importYAML);
+
+            // var html5QrcodeScanner = new Html5QrcodeScanner(
+	        // "reader", { fps: 10, qrbox: 250 });
+            // html5QrcodeScanner.render(onScanSuccess);
         }
     </script>
 </body>
