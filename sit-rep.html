@@ -733,59 +733,51 @@
                     </div>
                 </div>
             </div>
-        </div>
-        </form>
-        <div class="container-lg">
-            <hr>
-            <form id="NextUpdate" name="Next Update">
-                <div class="row">
-                    <div class="input-group col-sm">
-                            <span class="input-group-text">Next Update</span>
-                            <input type="text" class="form-control" list="UpdateList" id="NextUpdateTime" name="@" placeholder="..."/>
-                                <datalist id="UpdateList">
-                                    <option id='1hr' value="">+1hr</option>
-                                    <option id='2hr' value="">+2hr</option>
-                                    <option id='6hr' value="">+6hr</option>
-                                    <option id='12hr' value="">+12hr</option>
-                                </datalist>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="NextUpdate">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNextUpdate">
+                        Next Update
+                    </button>
+                </h2>
+                <div id="collapseNextUpdate" class="accordion-collapse collapse" data-bs-parent="#SitRepAccordion">
+                    <div class="accordion-body">
+                        <form id="NextUpdate" name="Next Update">
+                            <div class="row">
+                                <div class="input-group col-sm">
+                                        <span class="input-group-text">Next Update</span>
+                                        <input type="text" class="form-control" list="UpdateList" id="NextUpdateTime" name="@" placeholder="..."/>
+                                            <datalist id="UpdateList">
+                                                <option id='1hr' value="">+1hr</option>
+                                                <option id='2hr' value="">+2hr</option>
+                                                <option id='6hr' value="">+6hr</option>
+                                                <option id='12hr' value="">+12hr</option>
+                                            </datalist>
 
-                    </div>
-                    <div class="input-group col-sm">
-                        <span class="input-group-text">Now +</span>
-                        <button class="btn btn-secondary" type="button" onclick="updateTimeButton('NextUpdateTime', 1)">1 hr</button>
-                        <button class="btn btn-secondary" type="button" onclick="updateTimeButton('NextUpdateTime', 2)">2 hrs</button>
-                        <button class="btn btn-secondary" type="button" onclick="updateTimeButton('NextUpdateTime', 6)">6 hrs</button>
-                        <button class="btn btn-secondary" type="button" onclick="updateTimeButton('NextUpdateTime', 12)">12 hrs</button>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-group col-sm">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">Email</span>
-                        </div>
-                        <input class="form-control" list="EmailList" id="Email" placeholder="..."/>
-                            <datalist id="EmailList">
-                                <option id="test@exmaple.com" value="test@example.com">test@example.com</option>
-                            </datalist>
-                    </div>
-                </div>
-            </form>
-        </div>
-
-        <!-- <div class="container-lg">
-            <hr>
-            <div class="row">
-                <div class="form-floating">
-                    <div class="input-group justify-content-center">
-                        <button type="button" class="btn btn-primary w-25" id="Export" onclick="exportYAML()">Generate</button>
-                        <button type="button" class="btn btn-secondary w-25" id="Import" onclick="importYAML()">Import</button>
-                        <button type="button" class="btn btn-success w-25" id="Email" onclick="emailYAML()">Email</button>
-                        <button type="button" class="btn btn-primary w-25" id="Help" data-bs-toggle="modal" data-bs-target="#helpModal">Help</button>
+                                </div>
+                                <div class="input-group col-sm">
+                                    <span class="input-group-text">Now +</span>
+                                    <button class="btn btn-secondary" type="button" onclick="updateTimeButton('NextUpdateTime', 1)">1 hr</button>
+                                    <button class="btn btn-secondary" type="button" onclick="updateTimeButton('NextUpdateTime', 2)">2 hrs</button>
+                                    <button class="btn btn-secondary" type="button" onclick="updateTimeButton('NextUpdateTime', 6)">6 hrs</button>
+                                    <button class="btn btn-secondary" type="button" onclick="updateTimeButton('NextUpdateTime', 12)">12 hrs</button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-group col-sm">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Email</span>
+                                    </div>
+                                    <input class="form-control" list="EmailList" id="Email" placeholder="..."/>
+                                        <datalist id="EmailList">
+                                            <option id="test@exmaple.com" value="test@example.com">test@example.com</option>
+                                        </datalist>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
-        </div>  -->
-
+        </div>
 
         <div class="container-lg">
             <hr>
