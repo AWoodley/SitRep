@@ -30,6 +30,27 @@
         @media print {
             .printable {display:block;}
             .screen {display:none;}
+
+            h1, h2, h3, h4, h5, h6, span, a {
+                color: #000 !important;
+            }
+
+            p{
+                text-indent:50px;
+                color: #000 !important;
+            }
+
+            .bg-primary, .bg-secondary, .bg-success, .bg-danger, .bg-warning, .bg-info, .bg-dark {
+                background-color: #fff !important;
+            }
+
+            body {
+                -webkit-filter: grayscale(100%); /* For WebKit browsers like Chrome, Safari */
+                -moz-filter: grayscale(100%);    /* For Firefox */
+                -ms-filter: grayscale(100%);     /* For Internet Explorer/Edge */
+                filter: grayscale(100%);         /* Standard CSS3 property */
+            }
+
         }
     </style>
   </head>
@@ -71,7 +92,7 @@
                                     <div class="input-group-prepend w-50">
                                         <span class="input-group-text w-100">Incident Number</span>
                                     </div>
-                                    <input class="form-control" id="Incident_Number" name="Incident Number"/>
+                                    <input class="form-control" type="number" id="Incident_Number" name="Incident Number"/>
                                 </div>
                             </div>
                             <div class="row">
@@ -728,6 +749,29 @@
                 </div>
             </div>
             <div class="accordion-item">
+                <h2 class="accordion-header" id="OtherNotesHeader">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOtherNotes">
+                        Other Notes
+                    </button>
+                </h2>
+                <div id="collapseOtherNotes" class="accordion-collapse collapse" data-bs-parent="#SitRepAccordion">
+                    <div class="accordion-body">
+                        <form id="OtherNotes" name="Other Notes">
+                            <div class="row g-3">
+                                <div class="form-floating col-md-6">
+                                    <textarea 
+                                        class="form-control rounded-lg" 
+                                        id="Notes"
+                                        name="Notes"
+                                        style="height: 400px"></textarea>
+                                    <label for="Notes">Notes</label>
+                                </div>
+                            </div>                        
+                        </form>
+                    </div>
+                </div>
+            </div>            
+            <div class="accordion-item">
                 <h2 class="accordion-header" id="NextUpdate">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNextUpdate">
                         Next Update
@@ -761,9 +805,8 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">Email</span>
                                     </div>
-                                    <input class="form-control" list="EmailList" id="Email" placeholder="..."/>
+                                    <input class="form-control" type="email" list="EmailList" id="Email" placeholder="..."/>
                                         <datalist id="EmailList">
-                                            <option id="test@exmaple.com" value="test@example.com">test@example.com</option>
                                         </datalist>
                                 </div>
                             </div>
@@ -856,16 +899,14 @@
 
 
         <div class="modal fade" id="printModal" tabindex="-1">
-            <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-dialog modal-dialog-scrollable modal-xl">
                 <div class="modal-content">
-                <!-- <div class="modal-header">
+                <div class="modal-header">
                     <h1 class="modal-title" id="helpModalLabel">Print</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div> -->
-                <div class="modal-body">
-                    <div id="printModalArea">
+                </div>
+                <div class="modal-body" id="printModalArea">
 
-                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" onclick="window.print()">Print</button>
@@ -876,7 +917,7 @@
         </div>
     </div>
 
-    <div class="printable" id="printArea"></div>
+    <div class="printable text-dark" id="printArea"></div>
 
     <script>
         function toggleInputValue(targetId, text) {
@@ -1106,7 +1147,7 @@
                     }
                 }
             }
-            printArea.innerHTML = printModal.innerHTML;
+            printArea.innerHTML = printModalArea.innerHTML;
         }
 
 
