@@ -13,9 +13,10 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            min-height: 100vh;
+            /* max-height: calc(100vh - 440px); */
             align-items: center;
             justify-content: center;
+	        padding-bottom: 500px;
         }
  
         .form-floating label {
@@ -816,8 +817,8 @@
             </div>
         </div>
 
-        <div class="container-lg">
-            <hr>
+        <div class="container-lg fixed-bottom p-3 bg-body shadow bg-opacity-100 founded-lg">
+		<!--<hr> -->
 
             <label for="YAML" class="fw-bold">Output</label>
             <div class="textarea-container" style="position: relative;">
