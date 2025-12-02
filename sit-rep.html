@@ -79,7 +79,7 @@
                                     <div class="input-group-prepend w-50">
                                         <span class="input-group-text w-100">At</span>
                                     </div>
-                                    <input class="form-control" id="AtDateTime" Name="@"/>
+                                    <input class="form-control" id="AtDateTime" Name="At"/>
                                 </div>
                             </div>
                             <div class="row">
@@ -87,13 +87,14 @@
                                     <div class="input-group-prepend w-50">
                                         <span class="input-group-text w-100">Incident Name</span>
                                     </div>
-                                    <input class="form-control" id="Incident_Name" name="Incident Name"/>
+                                    <input class="form-control" id="IncidentName" name="Incident Name"/>
                                 </div>
                                 <div class="input-group col-sm">
                                     <div class="input-group-prepend w-50">
                                         <span class="input-group-text w-100">Incident Number</span>
                                     </div>
-                                    <input class="form-control" type="number" id="Incident_Number" name="Incident Number"/>
+                                    <input class="form-control" list="IncidentNumberList" id="IncidentNumber" name="Incident Number"/>
+                                    <datalist id="IncidentNumberList"></datalist>
                                 </div>
                             </div>
                             <div class="row">
@@ -144,6 +145,30 @@
                                         <option value="Bushfires Act 1954">Bushfires Act 1954</option>
                                         <option value="Fire Brigades Act 1942">Fire Brigades Act 1942</option>
                                         <option value="Conservation and Land Management Act 1984">Conservation and Land Management Act 1984</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-group col-sm">
+                                    <div class="input-group-prepend w-50">
+                                        <span class="input-group-text w-100">Section 13</span>
+                                    </div>
+                                    <select class="form-select" id="Section 13" name="Section 13" placeholder="...">
+                                        <option selected></option>
+                                        <option value="Submitted">Submitted</option>
+                                        <option value="Approved">Approved</option>
+                                        <option value="Rejected">Rejected</option>
+                                        <option value="Revoked">Revoked</option>
+                                    </select>
+                                </div>
+                                <div class="input-group col-sm">
+                                    <div class="input-group-prepend w-50">
+                                        <span class="input-group-text w-100">Section 45/45A</span>
+                                    </div>
+                                    <select class="form-select" id="Section 45/45A" name="Section 45/45A" placeholder="...">
+                                        <option selected></option>
+                                        <option value="DBCA to LGA">DBCA to LGA</option>
+                                        <option value="LGA to DBCA">LGA to DBCA</option>
                                     </select>
                                 </div>
                             </div>
@@ -255,6 +280,17 @@
                                     <input type="text" class="form-control" id="Time_to_control" placeholder="hrs" name="Time to Control">
                                 </div>                
                             </div>
+                            <hr>
+                            <div class="row">
+                                <div class="form-floating">
+                                    <textarea 
+                                        class="form-control rounded" 
+                                        id="SituationComments"
+                                        name="Comments"
+                                        style="height: 250px"></textarea>
+                                    <label for="textareaTactics">Comments</label>
+                                </div>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -318,7 +354,7 @@
                             </div>
                             <hr>
                             <div class="row">
-                                <div class="form-floating col-md-6">
+                                <div class="form-floating">
                                     <textarea 
                                         class="form-control rounded" 
                                         id="OtherLosses"
@@ -377,7 +413,7 @@
                             </div>                        
                             <hr>
                             <div class="row g-3">
-                                <div class="form-floating col-md-6">
+                                <div class="form-floating">
                                     <textarea 
                                         class="form-control rounded-lg" 
                                         id="RoadClosures"
@@ -480,6 +516,44 @@
                             </div>
                             <div class="row">
                                 <div class="input-group">
+                                    <span class="input-group-text w-25">Communications Plan</span>
+                                    <input class="form-control" list="CommunicationsPlanList" id="CommunicationsPlan" name="Communications Plan" placeholder="...">
+                                        <datalist id="CommunicationsPlanList">
+                                            <option id="MNC1" value="MNC1 - Command Channel 247, Sector Channels 354 - 359">MNC1 - Command Channel 247, Sector Channels 354 - 359</option>
+                                            <option id="MNC2" value="MNC2 - Command Channel 294, Sector Channels 354 - 359">MNC2 - Command Channel 294, Sector Channels 354 - 359</option>
+                                            <option id="MNC3" value="MNC3 - Command Channel 133, Sector Channels 360 - 365">MNC3 - Command Channel 133, Sector Channels 360 - 365</option>
+                                            <option id="MNC4" value="MNC4 - Command Channel 153, Sector Channels 354 - 359">MNC4 - Command Channel 153, Sector Channels 354 - 359</option>
+                                            <option id="MNC5" value="MNC5 - Command Channel 224, Sector Channels 360 - 365">MNC5 - Command Channel 224, Sector Channels 360 - 365</option>
+                                            <option id="MNC6" value="MNC6 - Command Channel 261, Sector Channels 354 - 359">MNC6 - Command Channel 261, Sector Channels 354 - 359</option>
+                                            <option id="MNE1" value="MNE1 - Command Channel 346, Sector Channels 360 - 365">MNE1 - Command Channel 346, Sector Channels 360 - 365</option>
+                                            <option id="MNE2" value="MNE2 - Command Channel 110, Sector Channels 354 - 359">MNE2 - Command Channel 110, Sector Channels 354 - 359</option>
+                                            <option id="MNE3" value="MNE3 - Command Channel 112, Sector Channels 360 - 365">MNE3 - Command Channel 112, Sector Channels 360 - 365</option>
+                                            <option id="MCC1" value="MCC1 - Command Channel 231, Sector Channels 354 - 359">MCC1 - Command Channel 231, Sector Channels 354 - 359</option>
+                                            <option id="MCC2" value="MCC2 - Command Channel 173, Sector Channels 360 - 365">MCC2 - Command Channel 173, Sector Channels 360 - 365</option>
+                                            <option id="MCC3" value="MCC3 - Command Channel 316, Sector Channels 354 - 359">MCC3 - Command Channel 316, Sector Channels 354 - 359</option>
+                                            <option id="MCC4" value="MCC4 - Command Channel 229, Sector Channels 360 - 365">MCC4 - Command Channel 229, Sector Channels 360 - 365</option>
+                                            <option id="MCC5" value="MCC5 - Command Channel 138, Sector Channels 354 - 359">MCC5 - Command Channel 138, Sector Channels 354 - 359</option>
+                                            <option id="MCC6" value="MCC6 - Command Channel 121, Sector Channels 360 - 365">MCC6 - Command Channel 121, Sector Channels 360 - 365</option>
+                                            <option id="MCE1" value="MCE1 - Command Channel 142, Sector Channels 360 - 365">MCE1 - Command Channel 142, Sector Channels 360 - 365</option>
+                                            <option id="MCE2" value="MCE2 - Command Channel 260, Sector Channels 354 - 359">MCE2 - Command Channel 260, Sector Channels 354 - 359</option>
+                                            <option id="MCE3" value="MCE3 - Command Channel 206, Sector Channels 360 - 365">MCE3 - Command Channel 206, Sector Channels 360 - 365</option>
+                                            <option id="MCE4" value="MCE4 - Command Channel 238, Sector Channels 354 - 359">MCE4 - Command Channel 238, Sector Channels 354 - 359</option>
+                                            <option id="MCE5" value="MCE5 - Command Channel 141, Sector Channels 354 - 359">MCE5 - Command Channel 141, Sector Channels 354 - 359</option>
+                                            <option id="MCE6" value="MCE6 - Command Channel 144, Sector Channels 354 - 359">MCE6 - Command Channel 144, Sector Channels 354 - 359</option>
+                                            <option id="MCE7" value="MCE7 - Command Channel 128, Sector Channels 360 - 365">MCE7 - Command Channel 128, Sector Channels 360 - 365</option>
+                                            <option id="MSC1" value="MSC1 - Command Channel 109, Sector Channels 354 - 359">MSC1 - Command Channel 109, Sector Channels 354 - 359</option>
+                                            <option id="MSC2" value="MSC2 - Command Channel 234, Sector Channels 360 - 365">MSC2 - Command Channel 234, Sector Channels 360 - 365</option>
+                                            <option id="MSC3" value="MSC3 - Command Channel 168, Sector Channels 354 - 359">MSC3 - Command Channel 168, Sector Channels 354 - 359</option>
+                                            <option id="MSC4" value="MSC4 - Command Channel 161, Sector Channels 354 - 359">MSC4 - Command Channel 161, Sector Channels 354 - 359</option>
+                                            <option id="MSE1" value="MSE1 - Command Channel 221, Sector Channels 360 - 365">MSE1 - Command Channel 221, Sector Channels 360 - 365</option>
+                                            <option id="MSE2" value="MSE2 - Command Channel 218, Sector Channels 354 - 359">MSE2 - Command Channel 218, Sector Channels 354 - 359</option>
+                                            <option id="MSE3" value="MSE3 - Command Channel 139, Sector Channels 360 - 365">MSE3 - Command Channel 139, Sector Channels 360 - 365</option>
+                                            <option id="MSE4" value="MSE4 - Command Channel 170, Sector Channels 354 - 359">MSE4 - Command Channel 170, Sector Channels 354 - 359</option>
+                                        </datalist>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-group">
                                     <span class="input-group-text w-25">Incident Controller</span>
                                     <input type="text" class="form-control" id="IncidentController" name="Incident Controller">
                                 </div>
@@ -537,9 +611,10 @@
                                     <span class="input-group-text w-25">Situation Analysis</span>
                                     <input type="text" class="form-control" id="SituationAnalysis" name="Situation Analysis">
                                 </div>
-                            </div>     
+                            </div>
+                            <hr>
                             <div class="row g-3">
-                                <div class="form-floating col-md-6">
+                                <div class="form-floating">
                                     <textarea 
                                         class="form-control rounded-lg" 
                                         id="Divisions"
@@ -547,9 +622,10 @@
                                         style="height: 250px"></textarea>
                                     <label for="Divisions">Divisions</label>
                                 </div>
-                            </div> 
+                            </div>
+                            <hr> 
                             <div class="row g-3">
-                                <div class="form-floating col-md-6">
+                                <div class="form-floating">
                                     <textarea 
                                         class="form-control rounded-lg" 
                                         id="Sectors"
@@ -570,75 +646,148 @@
                 </h2>
                 <div id="collapseOperations" class="accordion-collapse collapse" data-bs-parent="#SitRepAccordion">
                     <div class="accordion-body">
-                        <form id="Operations" name="Operations">
+                        <form id="Tactics" name="Tactics">
+                            <legend>Tactics</legend>
                             <div class="row">
                                 <div class="input-group">
-                                    <span class="input-group-text w-25">Communications Plan</span>
-                                    <input class="form-control" list="CommunicationsPlanList" id="CommunicationsPlan" name="Communications Plan" placeholder="...">
-                                        <datalist id="CommunicationsPlanList">
-                                            <option id="MNC1" value="MNC1 - Command Channel 247, Sector Channels 354 - 359">MNC1 - Command Channel 247, Sector Channels 354 - 359</option>
-                                            <option id="MNC2" value="MNC2 - Command Channel 294, Sector Channels 354 - 359">MNC2 - Command Channel 294, Sector Channels 354 - 359</option>
-                                            <option id="MNC3" value="MNC3 - Command Channel 133, Sector Channels 360 - 365">MNC3 - Command Channel 133, Sector Channels 360 - 365</option>
-                                            <option id="MNC4" value="MNC4 - Command Channel 153, Sector Channels 354 - 359">MNC4 - Command Channel 153, Sector Channels 354 - 359</option>
-                                            <option id="MNC5" value="MNC5 - Command Channel 224, Sector Channels 360 - 365">MNC5 - Command Channel 224, Sector Channels 360 - 365</option>
-                                            <option id="MNC6" value="MNC6 - Command Channel 261, Sector Channels 354 - 359">MNC6 - Command Channel 261, Sector Channels 354 - 359</option>
-                                            <option id="MNE1" value="MNE1 - Command Channel 346, Sector Channels 360 - 365">MNE1 - Command Channel 346, Sector Channels 360 - 365</option>
-                                            <option id="MNE2" value="MNE2 - Command Channel 110, Sector Channels 354 - 359">MNE2 - Command Channel 110, Sector Channels 354 - 359</option>
-                                            <option id="MNE3" value="MNE3 - Command Channel 112, Sector Channels 360 - 365">MNE3 - Command Channel 112, Sector Channels 360 - 365</option>
-                                            <option id="MCC1" value="MCC1 - Command Channel 231, Sector Channels 354 - 359">MCC1 - Command Channel 231, Sector Channels 354 - 359</option>
-                                            <option id="MCC2" value="MCC2 - Command Channel 173, Sector Channels 360 - 365">MCC2 - Command Channel 173, Sector Channels 360 - 365</option>
-                                            <option id="MCC3" value="MCC3 - Command Channel 316, Sector Channels 354 - 359">MCC3 - Command Channel 316, Sector Channels 354 - 359</option>
-                                            <option id="MCC4" value="MCC4 - Command Channel 229, Sector Channels 360 - 365">MCC4 - Command Channel 229, Sector Channels 360 - 365</option>
-                                            <option id="MCC5" value="MCC5 - Command Channel 138, Sector Channels 354 - 359">MCC5 - Command Channel 138, Sector Channels 354 - 359</option>
-                                            <option id="MCC6" value="MCC6 - Command Channel 121, Sector Channels 360 - 365">MCC6 - Command Channel 121, Sector Channels 360 - 365</option>
-                                            <option id="MCE1" value="MCE1 - Command Channel 142, Sector Channels 360 - 365">MCE1 - Command Channel 142, Sector Channels 360 - 365</option>
-                                            <option id="MCE2" value="MCE2 - Command Channel 260, Sector Channels 354 - 359">MCE2 - Command Channel 260, Sector Channels 354 - 359</option>
-                                            <option id="MCE3" value="MCE3 - Command Channel 206, Sector Channels 360 - 365">MCE3 - Command Channel 206, Sector Channels 360 - 365</option>
-                                            <option id="MCE4" value="MCE4 - Command Channel 238, Sector Channels 354 - 359">MCE4 - Command Channel 238, Sector Channels 354 - 359</option>
-                                            <option id="MCE5" value="MCE5 - Command Channel 141, Sector Channels 354 - 359">MCE5 - Command Channel 141, Sector Channels 354 - 359</option>
-                                            <option id="MCE6" value="MCE6 - Command Channel 144, Sector Channels 354 - 359">MCE6 - Command Channel 144, Sector Channels 354 - 359</option>
-                                            <option id="MCE7" value="MCE7 - Command Channel 128, Sector Channels 360 - 365">MCE7 - Command Channel 128, Sector Channels 360 - 365</option>
-                                            <option id="MSC1" value="MSC1 - Command Channel 109, Sector Channels 354 - 359">MSC1 - Command Channel 109, Sector Channels 354 - 359</option>
-                                            <option id="MSC2" value="MSC2 - Command Channel 234, Sector Channels 360 - 365">MSC2 - Command Channel 234, Sector Channels 360 - 365</option>
-                                            <option id="MSC3" value="MSC3 - Command Channel 168, Sector Channels 354 - 359">MSC3 - Command Channel 168, Sector Channels 354 - 359</option>
-                                            <option id="MSC4" value="MSC4 - Command Channel 161, Sector Channels 354 - 359">MSC4 - Command Channel 161, Sector Channels 354 - 359</option>
-                                            <option id="MSE1" value="MSE1 - Command Channel 221, Sector Channels 360 - 365">MSE1 - Command Channel 221, Sector Channels 360 - 365</option>
-                                            <option id="MSE2" value="MSE2 - Command Channel 218, Sector Channels 354 - 359">MSE2 - Command Channel 218, Sector Channels 354 - 359</option>
-                                            <option id="MSE3" value="MSE3 - Command Channel 139, Sector Channels 360 - 365">MSE3 - Command Channel 139, Sector Channels 360 - 365</option>
-                                            <option id="MSE4" value="MSE4 - Command Channel 170, Sector Channels 354 - 359">MSE4 - Command Channel 170, Sector Channels 354 - 359</option>
-                                        </datalist>
+                                    <button class="btn btn-outline-secondary" type="button" id="tactic0Button" onclick="toggleInputValue('tactic0', 'Ensure firefighter safety is prioritised over all other considerations, and that crews are to withdraw and communicate via chain of command if safety is being compromised or strategies are ineffective;')">1.1</button>
+                                    <input type="text" class="form-control text-primary" id="tactic0" list="tacticlist0" placeholder="Ensure firefighter safety is prioritised over all other considerations, and that crews are to withdraw and communicate via chain of command if safety is being compromised or strategies are ineffective;" name="1.1">
+                                    <datalist id="tacticlist0">
+                                        <option>Ensure firefighter safety is prioritised over all other considerations, and that crews are to withdraw and communicate via chain of command if safety is being compromised or strategies are ineffective;</option>
+                                    </datalist>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="form-floating col-md-6">
-                                    <textarea 
-                                        class="form-control rounded-lg" 
-                                        id="textareaTactics"
-                                        name="Tactics"
-                                        style="height: 250px"></textarea>
-                                    <label for="textareaTactics">Tactics</label>
+                                <div class="input-group">
+                                    <button class="btn btn-outline-secondary" type="button" id="tactic1Button" onclick="toggleInputValue('tactic1', 'Integrate local knowledge into the IMT and utilise spatial information/critical infrastructure reports to determine protection priorities and strategies;')">1.2</button>
+                                    <input type="text" class="form-control text-primary" id="tactic1" list="tacticlist1" placeholder="Integrate local knowledge into the IMT and utilise spatial information/critical infrastructure reports to determine protection priorities and strategies;" name="1.2">
+                                    <datalist id="tacticlist1">
+                                        <option>Integrate local knowledge into the IMT and utilise spatial information/critical infrastructure reports to determine protection priorities and strategies;</option>
+                                    </datalist>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="form-floating col-md-6">
-                                    <textarea 
-                                        class="form-control rounded-lg" 
-                                        id="textareaPriorities"
-                                        name="Priorities"
-                                        style="height: 250px"></textarea>
-                                    <label for="textareaPriorities">Priorities</label>
+                                <div class="input-group">
+                                    <button class="btn btn-outline-secondary" type="button" id="tactic2Button" onclick="toggleInputValue('tactic2', 'Parallel attack on the flank fires, supported by suppression aircraft and consolidated through tracking with machinery.')">2.1</button>
+                                    <input type="text" class="form-control text-primary" id="tactic2" list="tacticlist2" placeholder="Parallel attack on the flank fires, supported by suppression aircraft and consolidated through tracking with machinery." name="2.1">
+                                    <datalist id="tacticlist2">
+                                        <option>Parallel attack on the flank fires, supported by suppression aircraft and consolidated through tracking with machinery.</option>
+                                    </datalist>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="form-floating col-md-6">
-                                    <textarea 
-                                        class="form-control rounded-lg" 
-                                        id="textareaTriggerPoints"
-                                        name="Trigger Points"
-                                        style="height: 250px"></textarea>
-                                    <label for="textareaTriggerPoints">Trigger Points</label>
-                                </div>                        
-                            </div>                        
+                                <div class="input-group">
+                                    <button class="btn btn-outline-secondary" type="button" id="tactic3Button" onclick="toggleInputValue('tactic3', 'Contain fire within constructed mineral earth firebreaks;')">2.2</button>
+                                    <input type="text" class="form-control text-primary" id="tactic3" list="tacticlist3" placeholder="Contain fire within constructed mineral earth firebreaks;" name="2.2">
+                                    <datalist id="tacticlist3">
+                                        <option>Contain fire within constructed mineral earth firebreaks;</option>
+                                    </datalist>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-group">
+                                    <button class="btn btn-outline-secondary" type="button" id="tactic4Button" onclick="toggleInputValue('tactic4', 'Public information and warnings via DFES Coordinator Public Information;')">3.1</button>
+                                    <input type="text" class="form-control text-primary" id="tactic4" list="tacticlist4" placeholder="Public information and warnings via DFES Coordinator Public Information;" name="3.1">
+                                    <datalist id="tacticlist4">
+                                        <option>Public information and warnings via DFES Coordinator Public Information;</option>
+                                    </datalist>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-group">
+                                    <button class="btn btn-outline-secondary" type="button" id="tactic5Button" onclick="toggleInputValue('tactic5', 'Incident situation reports, IAPs and other supporting documents are developed;')">3.2</button>
+                                    <input type="text" class="form-control text-primary" id="tactic5" list="tacticlist5" placeholder="Incident situation reports, IAPs and other supporting documents are developed;" name="3.2">
+                                    <datalist id="tacticlist5">
+                                        <option>Incident situation reports, IAPs and other supporting documents are developed;</option>
+                                    </datalist>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-group">
+                                    <button class="btn btn-outline-secondary" type="button" id="tactic6Button" onclick="toggleInputValue('tactic6', 'Conduct a direct attack on the entire fire perimeter to extinguish hotspots, prioritising containment and control actions on western sides of fire due to forecast weather;')">4.1</button>
+                                    <input type="text" class="form-control text-primary" id="tactic6" list="tacticlist6" placeholder="Conduct a direct attack on the entire fire perimeter to extinguish hotspots, prioritising containment and control actions on western sides of fire due to forecast weather;" name="4.1">
+                                    <datalist id="tacticlist6">
+                                        <option>Conduct a direct attack on the entire fire perimeter to extinguish hotspots, prioritising containment and control actions on western sides of fire due to forecast weather;</option>
+                                    </datalist>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-group">
+                                    <button class="btn btn-outline-secondary" type="button" id="tactic7Button" onclick="toggleInputValue('tactic7', 'Mop up and patrol incident to minimum mop up standards 20m (ground fuels)/100m (aerial fuels) until declared safe by IC;')">4.2</button>
+                                    <input type="text" class="form-control text-primary" id="tactic7" list="tacticlist7" placeholder="Mop up and patrol incident to minimum mop up standards 20m (ground fuels)/100m (aerial fuels) until declared safe by IC;" name="4.2">
+                                    <datalist id="tacticlist7">
+                                        <option>Mop up and patrol incident to minimum mop up standards 20m (ground fuels)/100m (aerial fuels) until declared safe by IC;</option>
+                                    </datalist>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-group">
+                                    <button class="btn btn-outline-secondary" type="button" id="tactic8Button" onclick="toggleInputValue('tactic8', 'Utilise aerial observation, aerial intelligence as appropriate to identify areas of focus for ground crews to extinguish and make safe;')">4.3</button>
+                                    <input type="text" class="form-control text-primary" id="tactic8" list="tacticlist8" placeholder="Utilise aerial observation, aerial intelligence as appropriate to identify areas of focus for ground crews to extinguish and make safe;" name="4.3">
+                                    <datalist id="tacticlist8">
+                                        <option>Utilise aerial observation, aerial intelligence as appropriate to identify areas of focus for ground crews to extinguish and make safe;</option>
+                                    </datalist>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-group">
+                                    <button class="btn btn-outline-secondary" type="button" id="tactic8Button" onclick="toggleInputValue('tactic9', '')">Other</button>
+                                    <input type="text" class="form-control text-primary" id="tactic1" list="tacticlist8" placeholder="" name="Other">
+                                    <datalist id="tacticlist8">
+                                        <option></option>
+                                    </datalist>
+                                </div>
+                            </div>
+                        </form>
+                        <hr>
+                        <form id="TriggerPoints" name="Trigger Points">
+                            <legend>Trigger Points</legend>
+                            <div class="row">
+                                <div class="input-group">
+                                    <button class="btn btn-outline-secondary" type="button" id="trigger0Button" onclick="toggleInputValue('trigger0', 'If outbreak occurs and cannot be contained within 20 minutes – IC to enact pre-determined action plan;')">1</button>
+                                    <input type="text" class="form-control text-primary" id="trigger0" list="triggerlist0" placeholder="If outbreak occurs and cannot be contained within 20 minutes – IC to enact pre-determined action plan;" name="(1)">
+                                    <datalist id="triggerlist0">
+                                        <option>If outbreak occurs and cannot be contained within 20 minutes – IC to enact pre-determined action plan;</option>
+                                    </datalist>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-group">
+                                    <button class="btn btn-outline-secondary" type="button" id="trigger1Button" onclick="toggleInputValue('trigger1', 'If fire crosses <ROAD> – escalate to L2 incident. IC to enact pre-determined action plan;')">2</button>
+                                    <input type="text" class="form-control text-primary" id="trigger1" list="triggerlist1" placeholder="If fire crosses <ROAD> – escalate to L2 incident. IC to enact pre-determined action plan;" name="(2)">
+                                    <datalist id="triggerlist1">
+                                        <option>If fire crosses <ROAD> – escalate to L2 incident. IC to enact pre-determined action plan;</option>
+                                    </datalist>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-group">
+                                    <button class="btn btn-outline-secondary" type="button" id="trigger2Button" onclick="toggleInputValue('trigger2', '')">3</button>
+                                    <input type="text" class="form-control text-primary" id="trigger2" list="triggerlist2" placeholder="" name="(3)">
+                                </div>
+                            </div>                  
+                        </form>
+                        <hr>
+                        <form id="Priorities" name="Priorities">
+                            <legend>Priorities</legend>
+                            <div class="row">
+                                <div class="input-group">
+                                    <button class="btn btn-outline-secondary" type="button" id="priority0Button">1</button>
+                                    <input type="text" class="form-control text-primary" id="priority0" placeholder="" name="(1)">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-group">
+                                    <button class="btn btn-outline-secondary" type="button" id="priority1Button">2</button>
+                                    <input type="text" class="form-control text-primary" id="priority1" placeholder="" name="(2)">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-group">
+                                    <button class="btn btn-outline-secondary" type="button" id="priority2Button">3</button>
+                                    <input type="text" class="form-control text-primary" id="priority2" placeholder="" name="(3)">
+                                </div>
+                            </div>                
                         </form>
                     </div>
                 </div>
@@ -666,10 +815,9 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
+
                                 <div class="col-md-6">
-                                    <div class="input-group col-sm">
+                                    <div class="input-group">
                                         <span class="input-group-text w-50">Future</span>
                                         <div class="form-floating">
                                             <input type="number" class="form-control"  id="FutureAppliances" name="Future Appliances" placeholder="0">
@@ -683,7 +831,7 @@
                                 </div>
                             </div>
                             <div class="row g-3">
-                                <div class="form-floating col-md-6">
+                                <div class="form-floating">
                                     <textarea 
                                         class="form-control rounded-lg" 
                                         id="AdditionalOnSite"
@@ -693,7 +841,7 @@
                                 </div>
                             </div>
                             <div class="row g-3">
-                                <div class="form-floating col-md-6">
+                                <div class="form-floating">
                                     <textarea 
                                         class="form-control rounded-lg" 
                                         id="AdditionalDeparted"
@@ -703,7 +851,7 @@
                                 </div>
                             </div>
                             <div class="row g-3">
-                                <div class="form-floating col-md-6">
+                                <div class="form-floating">
                                     <textarea 
                                         class="form-control rounded-lg" 
                                         id="RequiredResources"
@@ -726,7 +874,7 @@
                     <div class="accordion-body">
                         <form id="SafetyAndWelfare" name="Safety and Welfare">
                             <div class="row g-3">
-                                <div class="form-floating col-md-6">
+                                <div class="form-floating">
                                     <textarea 
                                         class="form-control rounded-lg" 
                                         id="Safety"
@@ -736,7 +884,7 @@
                                 </div>
                             </div>
                             <div class="row g-3">
-                                <div class="form-floating col-md-6">
+                                <div class="form-floating">
                                     <textarea 
                                         class="form-control rounded-lg" 
                                         id="Welfare"
@@ -759,12 +907,12 @@
                     <div class="accordion-body">
                         <form id="OtherNotes" name="Other Notes">
                             <div class="row g-3">
-                                <div class="form-floating col-md-6">
+                                <div class="form-floating">
                                     <textarea 
                                         class="form-control rounded-lg" 
                                         id="Notes"
                                         name="Notes"
-                                        style="height: 400px"></textarea>
+                                        style="height: 1000px"></textarea>
                                     <label for="Notes">Notes</label>
                                 </div>
                             </div>                        
@@ -784,7 +932,7 @@
                             <div class="row">
                                 <div class="input-group col-sm">
                                         <span class="input-group-text">Next Update</span>
-                                        <input type="text" class="form-control" list="UpdateList" id="NextUpdateTime" name="@" placeholder="..."/>
+                                        <input type="text" class="form-control" list="UpdateList" id="NextUpdateTime" name="At" placeholder="..."/>
                                             <datalist id="UpdateList">
                                                 <option id='1hr' value="">+1hr</option>
                                                 <option id='2hr' value="">+2hr</option>
@@ -886,7 +1034,7 @@
                     <p>
                     If you have any questions or suggestions for this tool, please email <a href="mailto:Adrian@SawyersValley.bfb.asn.au">Adrian@SawyersValley.bfb.asn.au</a>.
                     </p>
-                    Version: 1.0.1<br>
+                    Version: 1.1.0<br>
                     Date: 2025-11-23<br>
                     Licensed under the <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GPLv3.0</a><br>(excluding the <a href="https://getbootstrap.com/">Bootstrap</a> and <a href="https://github.com/nodeca/js-yaml">js-yaml</a> libraries)<br>
                     <a href="https://github.com/AWoodley/SitRep">https://github.com/AWoodley/SitRep</a>
@@ -1098,7 +1246,7 @@
 
             localStorage.setItem('from', document.getElementById("From").value);
             localStorage.setItem('email', document.getElementById("Email").value);
-            document.title = "INC" + document.getElementById("Incident_Number").value + " " + document.getElementById("Incident_Name").value + " Update: " + document.getElementById("AtDateTime").value;
+            document.title = "INC" + document.getElementById("IncidentNumber").value + " " + document.getElementById("IncidentName").value + " Update: " + document.getElementById("AtDateTime").value;
         }
 
 
@@ -1161,47 +1309,99 @@
         //     window.print();
         // }
 
+        function addWhitespaceToLines(text, whitespace = '  ') {
+            // The regular expression looks for the end of a line ($)
+            // that is NOT preceded by a colon ((?<!:))
+            const regex = new RegExp(`(?<!:)$`, 'gm');
+
+            // The 'm' flag makes '$' match the end of a line/string.
+            // The 'g' flag makes it global, replacing all matches.
+            return text.replace(regex, `${whitespace}$1`);
+        }
+
+
+        const upperize = obj =>
+            Object.keys(obj).reduce((acc, k) => {
+                acc[k.toUpperCase()] = obj[k];
+                return acc;
+            }, {});
+
+
+        function titleCase(str) {
+            var splitStr = str.toLowerCase().split(' ');
+            for (var i = 0; i < splitStr.length; i++) {
+                // You do not need to check if i is larger than splitStr length, as your for does that for you
+                // Assign it back to the array
+                splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);     
+            }
+
+            // Directly return the joined string
+            return splitStr.join(' '); 
+        }
+    
+
+        function findElementIgnoreCase(formElement, searchKey) {
+            const upperCaseKey = searchKey.toUpperCase();
+
+            return Array.from(formElement.elements).find(element =>
+                element.name && element.name.toUpperCase() === upperCaseKey
+            );
+        }
 
         function importYAML() {
             const allForms = document.forms;
+            const regex = /(.*)(?<!:)$/gm;
             let input = document.getElementById("YAML").value;
 
-            input = input.replaceAll('@:', '\'@\':');
+            input = input.replaceAll('@:', 'At:');
+            input = input.replace(regex, '  $1');
 
             try {
-                const formObject = jsyaml.load(input);
+                const yamlObject = upperize(jsyaml.load(input));
                 for (let i = 0; i < allForms.length; i++) {
-                const currentForm = allForms[i];
-                const formName = currentForm.name;
-                if (formName != '') {
-                    const currentFormObject = formObject[formName];
-                    for (const key in currentFormObject) {
-                        if (currentFormObject.hasOwnProperty(key)) {
-                            const formElement = currentForm.elements[key];
+                    const currentForm = allForms[i];
+                    const formName = currentForm.name.toUpperCase();
 
-                            if (formElement) {
-                                if (formElement.type === 'checkbox' || formElement.type === 'radio') {
-                                    formElement.checked = currentFormObject[key];
-                                } else {
-                                    formElement.value = currentFormObject[key];
+
+                    if (formName != '') {
+                        const currentYAMLObject = yamlObject[formName];
+                        // const currentYAMLObjectUpper = upperize(currentYAMLObject);
+                        for (const key in currentYAMLObject) {
+                            if (currentYAMLObject.hasOwnProperty(key)) {
+                                const searchKey = '/' + key + '/i'; 
+                                // const formElement = currentForm.element[key];
+                                const formElement = findElementIgnoreCase(currentForm, key);
+
+                                if (formElement) {
+                                    if (formElement.type === 'checkbox' || formElement.type === 'radio') {
+                                        formElement.checked = currentYAMLObject[key];
+                                    } else if (formElement.type === 'select-one') {
+                                        const optionsList = formElement.options;
+                                        for (const option of optionsList) {
+                                            if (option.value.toUpperCase() === currentYAMLObject[key].toUpperCase()) {
+                                                formElement.value = option.value;
+                                            }
+                                        }
+                                    } else {
+                                        formElement.value = currentYAMLObject[key];
+                                    }
                                 }
                             }
                         }
                     }
-                }
             }
             } catch (e) {
                 console.error(e);
                 return false;
             }
-            document.title = "INC" + document.getElementById("Incident_Number").value + " " + document.getElementById("Incident_Name").value + " Update: " + document.getElementById("AtDateTime").value;
+            document.title = "INC" + document.getElementById("IncidentNumber").value + " " + document.getElementById("IncidentName").value + " Update: " + document.getElementById("AtDateTime").value;
         }
 
 
         function emailYAML() {
             exportYAML();
             const email = document.getElementById("Email").value;
-            var subject = "INC" + document.getElementById("Incident_Number").value + " " + document.getElementById("Incident_Name").value + " Update: " + document.getElementById("AtDateTime").value;
+            var subject = "INC" + document.getElementById("IncidentNumber").value + " " + document.getElementById("IncidentName").value + " Update: " + document.getElementById("AtDateTime").value;
             const body = document.getElementById("YAML").value;
 
             var mailtoLink = "mailto:" + email + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
@@ -1217,16 +1417,66 @@
                     console.error('Failed to copy text: ', err);
                 });
         }
-        // function onScanSuccess(decodedText, decodedResult) {
-        //     // Handle on success condition with the decoded text or result.
-        //     document.getElementById('YAML').value = decodedText;
-        //     console.log(`Scan result: ${decodedText}`, decodedResult);
-        //     html5QrcodeScanner.clear();
-        // }
+
+
+        async function loadJSON(url) {
+            try {
+                // 1. Send the request
+                const response = await fetch(url);
+
+                // 2. Check if the response was successful (status code 200-299)
+                if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                // 3. Parse the response body as JSON
+                const data = await response.json();
+
+                // 4. Return the resulting JSON object
+                return data;
+
+            } catch (error) {
+                console.error('There was a problem with the fetch operation:', error);
+                // You can re-throw the error or return null/an empty object
+                throw error; 
+            }
+        }
+
+
+        async function populateIncidentNumbers() {
+            const incidentNumbers = document.getElementById('IncidentNumberList');
+            var incidents=[];
+
+            try {
+                const incidentsJSON = await loadJSON('https://api.emergency.wa.gov.au/v1/incidents');
+                
+                for (const incidentObject of incidentsJSON['incidents']) {
+                    if (incidentObject['incident-type'] === 'Bushfire') {
+                        let newObject = { number: incidentObject['cad-id'], name: titleCase(incidentObject['location']['value'])};
+                        incidents.push(newObject);
+                    }
+                }
+            
+                console.log(incidents);
+            } catch (error) {
+                console.error('There was a problem with the fetch operation:', error);
+                // You can re-throw the error or return null/an empty object
+                throw error; 
+            }
+
+            for (const incident of incidents) {
+                const newIncidentNumber = document.createElement('option');
+                newIncidentNumber.value=incident['number'];
+                incidentNumbers.appendChild(newIncidentNumber);
+            }
+
+        }
+
 
         window.onload = function() {
             getDate();
 
+            populateIncidentNumbers();
 
             const themeToggle = document.getElementById('theme_Toggle'); // Assuming you have a toggle with this ID
             const htmlElement = document.documentElement;
